@@ -1,0 +1,8 @@
+*.pyc
+*.debug
+
+session.shelve*
+
+/dist
+/build
+/src/ripe_api.egg-info
