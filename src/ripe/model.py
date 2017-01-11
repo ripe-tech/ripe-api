@@ -7,3 +7,8 @@ class ModelApi(object):
         url = self.base_url + "models/%s/defaults" % model
         contents = self.get(url, auth = False)
         return contents
+
+    def combinations_model(self, model):
+        url = self.base_url + "models/%s/combinations" % model
+        contents = self.get(url, auth = False)
+        return contents
