@@ -55,7 +55,7 @@ class Api(
     def login(self, username = None, password = None):
         username = username or self.username
         password = password or self.password
-        url = self.base_url + "signin"
+        url = self.base_url + "admin/login"
         contents = self.post(
             url,
             callback = False,
