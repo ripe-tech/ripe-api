@@ -23,7 +23,7 @@ class Api(
         self.base_url = appier.conf("RIPE_BASE_URL", RIPE_CORE_BASE_URL)
         self.username = appier.conf("RIPE_USERNAME", None)
         self.password = appier.conf("RIPE_PASSWORD", None)
-        self.admin = appier.conf("RIPE_ADMIN", None)
+        self.admin = appier.conf("RIPE_ADMIN", True, cast = bool)
         self.base_url = kwargs.get("base_url", self.base_url)
         self.username = kwargs.get("username", self.username)
         self.password = kwargs.get("password", self.password)
