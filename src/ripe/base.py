@@ -23,9 +23,11 @@ class Api(
         self.base_url = appier.conf("RIPE_BASE_URL", RIPE_CORE_BASE_URL)
         self.username = appier.conf("RIPE_USERNAME", None)
         self.password = appier.conf("RIPE_PASSWORD", None)
+        self.admin = appier.conf("RIPE_ADMIN", None)
         self.base_url = kwargs.get("base_url", self.base_url)
         self.username = kwargs.get("username", self.username)
         self.password = kwargs.get("password", self.password)
+        self.admin = kwargs.get("admin", self.admin)
         self.session_id = kwargs.get("session_id", None)
 
     def build(
@@ -52,10 +54,11 @@ class Api(
         session_id = self.get_session_id()
         params["session_id"] = session_id
 
-    def login(self, username = None, password = None):
+    def login(self, username = None, password = None, admin = None):
         username = username or self.username
         password = password or self.password
-        url = self.base_url + "signin"
+        admin = admin or self.admin
+        url = self.base_url + ("signin_admin" if admin else "signin")
         contents = self.post(
             url,
             callback = False,
