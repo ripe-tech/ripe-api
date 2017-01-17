@@ -12,3 +12,20 @@ class OrderApi(object):
         url = self.base_url + "orders"
         contents = self.post(url, data_j = order)
         return contents
+
+    def create_farfetch_order(
+        self,
+        ff_order_id,
+        contents,
+        currency = None,
+        country = None
+    ):
+        url = self.base_url + "orders/orders/farfetch"
+        contents = self.post(
+            url,
+            ff_order_id = ff_order_id,
+            contents = contents,
+            currency = currency,
+            country = country
+        )
+        return contents
