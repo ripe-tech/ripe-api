@@ -20,7 +20,7 @@ class OrderApi(object):
         currency = None,
         country = None
     ):
-        url = self.base_url + "orders/orders/farfetch"
+        url = self.base_url + "orders/farfetch"
         contents = self.post(
             url,
             ff_order_id = ff_order_id,
