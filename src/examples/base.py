@@ -6,7 +6,7 @@ import appier
 import ripe
 
 def get_api():
-    return ripe.Api(
+    return ripe.API(
         username = appier.conf("RIPE_USERNAME"),
         password = appier.conf("RIPE_PASSWORD")
     )

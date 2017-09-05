@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-class OrderApi(object):
+class OrderAPI(object):
 
     def list_orders(self, *args, **kwargs):
         url = self.base_url + "orders"

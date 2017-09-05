@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-class ModelApi(object):
+class ModelAPI(object):
 
     def defaults_model(self, model):
         url = self.base_url + "models/%s/defaults" % model

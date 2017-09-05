@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-class ConfigApi(object):
+class ConfigAPI(object):
 
     def get_config(self):
         url = self.base_url + "config"

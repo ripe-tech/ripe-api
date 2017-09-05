@@ -11,15 +11,15 @@ RIPE_CORE_BASE_URL = "http://localhost/api/"
 """ The default base url to be used when no other
 base url value is provided to the constructor """
 
-class Api(
-    appier.Api,
-    model.ModelApi,
-    order.OrderApi,
-    config.ConfigApi
+class API(
+    appier.API,
+    model.ModelAPI,
+    order.OrderAPI,
+    config.ConfigAPI
 ):
 
     def __init__(self, *args, **kwargs):
-        appier.Api.__init__(self, *args, **kwargs)
+        appier.API.__init__(self, *args, **kwargs)
         self.base_url = appier.conf("RIPE_BASE_URL", RIPE_CORE_BASE_URL)
         self.username = appier.conf("RIPE_USERNAME", None)
         self.password = appier.conf("RIPE_PASSWORD", None)

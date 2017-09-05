@@ -6,7 +6,7 @@ from . import config
 from . import model
 from . import order
 
-from .base import Api
-from .config import ConfigApi
-from .model import ModelApi
-from .order import OrderApi
+from .base import API
+from .config import ConfigAPI
+from .model import ModelAPI
+from .order import OrderAPI
