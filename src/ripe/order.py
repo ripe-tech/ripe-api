@@ -18,7 +18,8 @@ class OrderAPI(object):
         ff_order_id,
         contents,
         currency = None,
-        country = None
+        country = None,
+        safe = True
     ):
         url = self.base_url + "orders/farfetch"
         contents = self.post(
@@ -26,6 +27,7 @@ class OrderAPI(object):
             ff_order_id = ff_order_id,
             contents = contents,
             currency = currency,
-            country = country
+            country = country,
+            safe = safe
         )
         return contents
