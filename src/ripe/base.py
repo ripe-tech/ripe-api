@@ -8,7 +8,7 @@ from . import order
 from . import config
 
 RIPE_CORE_BASE_URL = "http://localhost/api/"
-""" The default base url to be used when no other
+""" The default base URL to be used when no other
 base url value is provided to the constructor """
 
 class API(
