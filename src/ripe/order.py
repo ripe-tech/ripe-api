@@ -21,7 +21,7 @@ class OrderAPI(object):
         country = None,
         safe = True,
         notify = False,
-        *args, 
+        *args,
         **kwargs
     ):
         url = self.base_url + "orders/farfetch"

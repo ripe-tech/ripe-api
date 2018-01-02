@@ -7,7 +7,7 @@ from . import model
 from . import order
 from . import config
 
-RIPE_CORE_BASE_URL = "http://localhost/api/"
+RIPE_BASE_URL = "http://localhost/api/"
 """ The default base URL to be used when no other
 base URL value is provided to the constructor """
 
@@ -20,7 +20,7 @@ class API(
 
     def __init__(self, *args, **kwargs):
         appier.API.__init__(self, *args, **kwargs)
-        self.base_url = appier.conf("RIPE_BASE_URL", RIPE_CORE_BASE_URL)
+        self.base_url = appier.conf("RIPE_BASE_URL", RIPE_BASE_URL)
         self.username = appier.conf("RIPE_USERNAME", None)
         self.password = appier.conf("RIPE_PASSWORD", None)
         self.admin = appier.conf("RIPE_ADMIN", True, cast = bool)
