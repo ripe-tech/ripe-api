@@ -10,12 +10,7 @@ class ConfigAPI(object):
 
     def sku_config(self, *args, **kwargs):
         url = self.base_url + "config/sku"
-        contents = self.get(
-            url,
-            auth = False,
-            *args,
-            **kwargs
-        )
+        contents = self.get(url, auth = False, **kwargs)
         return contents
 
     def resolve_config(self, product_id):
