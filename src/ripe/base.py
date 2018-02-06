@@ -3,6 +3,7 @@
 
 import appier
 
+from . import brand 
 from . import model
 from . import order
 from . import config
@@ -13,6 +14,7 @@ base URL value is provided to the constructor """
 
 class API(
     appier.API,
+    brand.BrandAPI,
     model.ModelAPI,
     order.OrderAPI,
     config.ConfigAPI
