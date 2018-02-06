@@ -20,6 +20,7 @@ class OrderAPI(object):
         currency = None,
         country = None,
         safe = True,
+        meta = None,
         notify = False,
         *args,
         **kwargs
@@ -32,6 +33,7 @@ class OrderAPI(object):
             currency = currency,
             country = country,
             safe = safe,
+            meta = meta,
             notify = notify,
             **kwargs
         )
