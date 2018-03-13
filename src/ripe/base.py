@@ -3,10 +3,11 @@
 
 import appier
 
-from . import brand 
+from . import brand
 from . import model
 from . import order
 from . import config
+from . import size
 
 RIPE_BASE_URL = "http://localhost/api/"
 """ The default base URL to be used when no other
@@ -17,7 +18,8 @@ class API(
     brand.BrandAPI,
     model.ModelAPI,
     order.OrderAPI,
-    config.ConfigAPI
+    config.ConfigAPI,
+    size.SizeAPI
 ):
 
     def __init__(self, *args, **kwargs):

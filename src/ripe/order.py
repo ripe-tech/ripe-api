@@ -12,7 +12,7 @@ class OrderAPI(object):
         url = self.base_url + "orders"
         contents = self.post(url, data_j = order)
         return contents
-    
+
     def import_order(
         self,
         ff_order_id,
