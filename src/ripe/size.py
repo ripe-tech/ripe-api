@@ -9,11 +9,25 @@ class SizeAPI(object):
         return contents
 
     def size_to_native(self,  scale, value, gender, *args, **kwargs):
-        url = self.base_url + "sizes/size_to_native?scale=%s&value=%s&gender=%s" % (scale, value, gender)
-        contents = self.get(url, auth = False, **kwargs)
+        url = self.base_url + "sizes/size_to_native"
+        contents = self.get(
+            url, 
+            auth = False,
+            scale = scale,
+            value = value,
+            gender = gender,
+            **kwargs
+        )
         return contents
 
     def native_to_size(self, scale, value, gender, *args, **kwargs):
-        url = self.base_url + "sizes/native_to_size?scale=%s&value=%s&gender=%s" % (scale, value, gender)
-        contents = self.get(url, auth = False)
+        url = self.base_url + "sizes/native_to_size"
+        contents = self.get(
+            url, 
+            auth = False,
+            scale = scale,
+            value = value,
+            gender = gender,
+            **kwargs
+        )
         return contents
