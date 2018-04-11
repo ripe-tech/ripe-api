@@ -1,7 +1,16 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+import json
+
 class OrderAPI(object):
+
+    @classmethod
+    def load_order(cls, order):
+        structure = order.get("structure", None)
+        if structure: order["details"] = json.loads(structure)
+        else: order["details"] = dict()
+        return order
 
     def list_orders(self, *args, **kwargs):
         url = self.base_url + "orders"
