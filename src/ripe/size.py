@@ -8,7 +8,7 @@ class SizeAPI(object):
         contents = self.get(url)
         return contents
 
-    def size_to_native(self,  scale, value, gender):
+    def size_to_native(self, scale, value, gender):
         url = self.base_url + "sizes/size_to_native"
         contents = self.get(
             url,
@@ -16,6 +16,17 @@ class SizeAPI(object):
             scale = scale,
             value = value,
             gender = gender
+        )
+        return contents
+
+    def size_to_native_b(self, scales, values, genders):
+        url = self.base_url + "sizes/size_to_native_b"
+        contents = self.get(
+            url,
+            auth = False,
+            scales = scales,
+            values = values,
+            genders = genders
         )
         return contents
 
@@ -27,5 +38,16 @@ class SizeAPI(object):
             scale = scale,
             value = value,
             gender = gender
+        )
+        return contents
+
+    def native_to_size_b(self, scales, values, genders):
+        url = self.base_url + "sizes/native_to_size_b"
+        contents = self.get(
+            url,
+            auth = False,
+            scales = scales,
+            values = values,
+            genders = genders
         )
         return contents
