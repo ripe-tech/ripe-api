@@ -5,7 +5,7 @@ class SizeAPI(object):
 
     def get_sizes(self):
         url = self.base_url + "sizes"
-        contents = self.get(url)
+        contents = self.get(url, auth = False)
         return contents
 
     def size_to_native(self, scale, value, gender):
