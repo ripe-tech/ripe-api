@@ -17,3 +17,8 @@ class BrandAPI(object):
         url = self.base_url + "brands/%s/models/%s/combinations" % (brand, model)
         contents = self.get(url, auth = False)
         return contents
+
+    def validate_brand(self, brand, model):
+        url = self.base_url + "brands/%s/models/%s/validate" % (brand, model)
+        contents = self.get(url, auth = False)
+        return contents
