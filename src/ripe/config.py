@@ -22,3 +22,8 @@ class ConfigAPI(object):
         url = self.base_url + "config/defaults/%s" % model
         contents = self.get(url, auth = False)
         return contents
+
+    def price_config(self, *args, **kwargs):
+        url = self.base_url + "config/price"
+        contents = self.get(url, auth = False, **kwargs)
+        return contents
