@@ -75,3 +75,8 @@ class OrderAPI(object):
             **kwargs
         )
         return contents
+
+    def report_pdf(self, number):
+        url = self.base_url + "orders/" + number + "/report.pdf"
+        contents = self.get(url, number)
+        return contents
