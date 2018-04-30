@@ -7,11 +7,14 @@ class LocaleAPI(object):
         url = self.base_url + "locale"
         contents = self.post(url,
             values = values,
-            locale = locale)
+            locale = locale
+        )
         return contents
 
     def locale_s(self, value, locale = "en-us"):
         url = self.base_url + "locale" + "/" + value
-        contents = self.post(url,
-            locale = locale)
+        contents = self.post(
+            url,
+            locale = locale
+        )
         return contents
