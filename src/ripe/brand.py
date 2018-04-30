@@ -18,7 +18,7 @@ class BrandAPI(object):
         contents = self.get(url, auth = False)
         return contents
 
-    def validate_brand(self, brand, model):
+    def validate_brand(self, brand, model, *args, **kwargs):
         url = self.base_url + "brands/%s/models/%s/validate" % (brand, model)
-        contents = self.get(url, auth = False)
+        contents = self.get(url, auth = False, **kwargs)
         return contents
