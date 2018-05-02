@@ -22,6 +22,11 @@ class OrderAPI(object):
         contents = self.post(url, data_j = order)
         return contents
 
+    def report_pdf(self, number):
+        url = self.base_url + "orders/%d/report.pdf" % number
+        contents = self.get(url, number)
+        return contents
+
     def import_order(
         self,
         ff_order_id,

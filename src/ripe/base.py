@@ -8,6 +8,7 @@ from . import model
 from . import order
 from . import config
 from . import size
+from . import locale
 
 RIPE_BASE_URL = "http://localhost/api/"
 """ The default base URL to be used when no other
@@ -19,7 +20,8 @@ class API(
     model.ModelAPI,
     order.OrderAPI,
     config.ConfigAPI,
-    size.SizeAPI
+    size.SizeAPI,
+    locale.LocaleAPI
 ):
 
     def __init__(self, *args, **kwargs):

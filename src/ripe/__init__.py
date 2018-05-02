@@ -14,3 +14,4 @@ from .config import ConfigAPI
 from .model import ModelAPI
 from .order import OrderAPI
 from .size import SizeAPI
+from .locale import LocaleAPI
