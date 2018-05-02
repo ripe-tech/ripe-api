@@ -13,6 +13,11 @@ class ConfigAPI(object):
         contents = self.get(url, auth = False, **kwargs)
         return contents
 
+    def price_config(self, *args, **kwargs):
+        url = self.base_url + "config/price"
+        contents = self.get(url, auth = False, **kwargs)
+        return contents
+
     def resolve_config(self, product_id):
         url = self.base_url + "config/resolve/%s" % product_id
         contents = self.get(url, auth = False)
@@ -21,9 +26,4 @@ class ConfigAPI(object):
     def defaults_model_config(self, model):
         url = self.base_url + "config/defaults/%s" % model
         contents = self.get(url, auth = False)
-        return contents
-
-    def price_config(self, *args, **kwargs):
-        url = self.base_url + "config/price"
-        contents = self.get(url, auth = False, **kwargs)
         return contents
