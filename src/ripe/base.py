@@ -29,10 +29,12 @@ class API(
         self.base_url = appier.conf("RIPE_BASE_URL", RIPE_BASE_URL)
         self.username = appier.conf("RIPE_USERNAME", None)
         self.password = appier.conf("RIPE_PASSWORD", None)
+        self.secret_key = appier.conf("RIPE_SECRET_KEY", None)
         self.admin = appier.conf("RIPE_ADMIN", True, cast = bool)
         self.base_url = kwargs.get("base_url", self.base_url)
         self.username = kwargs.get("username", self.username)
         self.password = kwargs.get("password", self.password)
+        self.secret_key = kwargs.get("secret_key", self.secret_key)
         self.admin = kwargs.get("admin", self.admin)
         self.session_id = kwargs.get("session_id", None)
 
@@ -49,7 +51,8 @@ class API(
         kwargs = None
     ):
         auth = kwargs.pop("auth", True)
-        if auth: params["sid"] = self.get_session_id()
+        if auth and self.secret_key: headers["X-Secret-Key"] = self.secret_key
+        if auth and not self.secret_key: params["sid"] = self.get_session_id()
 
     def get_session_id(self):
         if self.session_id: return self.session_id
