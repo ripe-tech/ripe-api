@@ -3,6 +3,11 @@
 
 class ModelAPI(object):
 
+    def config_model(self, model):
+        url = self.base_url + "models/%s" % model
+        contents = self.get(url, auth = False)
+        return contents
+
     def defaults_model(self, model):
         url = self.base_url + "models/%s/defaults" % model
         contents = self.get(url, auth = False)
