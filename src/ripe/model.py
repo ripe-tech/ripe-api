@@ -4,7 +4,7 @@
 class ModelAPI(object):
 
     def config_model(self, model):
-        url = self.base_url + "models/%s" % model
+        url = self.base_url + "models/%s/config" % model
         contents = self.get(url, auth = False)
         return contents
 
