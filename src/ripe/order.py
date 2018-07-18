@@ -22,6 +22,16 @@ class OrderAPI(object):
         contents = self.post(url, data_j = order)
         return contents
 
+    def get_order(self, number):
+        url = self.base_url + "orders/%d" % number
+        contents = self.get(url)
+        return contents
+
+    def price_order(self, number, currency = None):
+        url = self.base_url + "orders/%d/price" % number
+        contents = self.get(url, currency = currency)
+        return contents
+
     def report_pdf(self, number):
         url = self.base_url + "orders/%d/report.pdf" % number
         contents = self.get(url, number)
