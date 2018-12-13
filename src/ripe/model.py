@@ -17,3 +17,9 @@ class ModelAPI(object):
         url = self.base_url + "models/%s/combinations" % model
         contents = self.get(url, auth = False)
         return contents
+
+    def factory_model(self, model):
+        url = self.base_url + "models/%s/factory" % model
+        contents = self.get(url, auth = False)
+        return contents
+
