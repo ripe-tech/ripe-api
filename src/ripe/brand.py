@@ -3,6 +3,11 @@
 
 class BrandAPI(object):
 
+    def logo_brand(self, brand):
+        url = self.base_url + "brands/%s/models/%s/logo" % brand
+        contents = self.get(url, auth = False)
+        return contents
+
     def config_brand(self, brand, model):
         url = self.base_url + "brands/%s/models/%s/config" % (brand, model)
         contents = self.get(url, auth = False)
