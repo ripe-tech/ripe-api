@@ -3,9 +3,13 @@
 
 class BrandAPI(object):
 
-    def logo_brand(self, brand):
-        url = self.base_url + "brands/%s/models/%s/logo" % brand
-        contents = self.get(url, auth = False)
+    def logo_brand(self, brand, format = "png", size = ""):
+        url = self.base_url + "brands/%s/models/%s/logo.%s" % (brand, format)
+        contents = self.get(
+            url,
+            auth = False,
+            size = size
+        )
         return contents
 
     def config_brand(self, brand, model):
