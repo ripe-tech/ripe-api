@@ -61,7 +61,7 @@ class API(
     def auth_callback(self, params, headers):
         self.session_id = None
         session_id = self.get_session_id()
-        params["session_id"] = session_id
+        params["sid"] = session_id
 
     def login(self, username = None, password = None, admin = None):
         username = username or self.username
