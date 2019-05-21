@@ -1,4 +1,4 @@
-# [![RIPE API](res/logo.svg)](https://docs.platforme.com)
+# [![RIPE API](res/logo.png)](https://docs.platforme.com)
 
 The Python based RIPE Core API client.
 
