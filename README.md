@@ -1,4 +1,4 @@
-# RIPE API
+# [![RIPE API](res/logo.png)](https://tech.platforme.com)
 
 The Python based RIPE Core API client.
 
