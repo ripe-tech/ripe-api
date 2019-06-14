@@ -8,6 +8,11 @@ class ConfigAPI(object):
         contents = self.get(url)
         return contents
 
+    def info_config(self, *args, **kwargs):
+        url = self.base_url + "config/info"
+        contents = self.get(url, auth = False, **kwargs)
+        return contents
+
     def sku_config(self, *args, **kwargs):
         url = self.base_url + "config/sku"
         contents = self.get(url, auth = False, **kwargs)
@@ -15,6 +20,11 @@ class ConfigAPI(object):
 
     def price_config(self, *args, **kwargs):
         url = self.base_url + "config/price"
+        contents = self.get(url, auth = False, **kwargs)
+        return contents
+
+    def availability_config(self, *args, **kwargs):
+        url = self.base_url + "config/availability"
         contents = self.get(url, auth = False, **kwargs)
         return contents
 

@@ -22,4 +22,3 @@ class ModelAPI(object):
         url = self.base_url + "models/%s/factory" % model
         contents = self.get(url, auth = False)
         return contents
-
