@@ -37,7 +37,7 @@ class API(
         self.secret_key = kwargs.get("secret_key", self.secret_key)
         self.admin = kwargs.get("admin", self.admin)
         self.session_id = kwargs.get("session_id", None)
-        self.access_token = kwargs.get("access_token", None)
+        self.token = kwargs.get("token", None)
 
     def build(
         self,
@@ -64,29 +64,33 @@ class API(
         session_id = self.get_session_id()
         params["sid"] = session_id
 
-    def login(self, access_token = None, username = None, password = None, admin = None):
-        access_token = access_token or self.access_token
+    def login(self, username = None, password = None, admin = None):
+        username = username or self.username
+        password = password or self.password
+        admin = admin or self.admin
+        url = self.base_url + ("signin_admin" if admin else "signin")
+        contents = self.post(
+            url,
+            callback = False,
+            auth = False,
+            username = username,
+            password = password
+        )
+        self.username = contents.get("username", None)
+        self.session_id = contents.get("session_id", None)
+        self.tokens = contents.get("tokens", None)
+        self.trigger("auth", contents)
+        return self.session_id
 
-        if access_token:
-            contents = self.post(
-                self.base_url + "signin_pid",
-                token = access_token,
-                callback = False,
-                auth = False
-            )
-        else:
-            username = username or self.username
-            password = password or self.password
-            admin = admin or self.admin
-            url = self.base_url + ("signin_admin" if admin else "signin")
-            contents = self.post(
-                url,
-                callback = False,
-                auth = False,
-                username = username,
-                password = password
-            )
-
+    def login_pid(self, token = None):
+        token = token or self.token
+        url = self.base_url + "signin_pid"
+        contents = self.post(
+            url,
+            callback = False,
+            auth = False,
+            token = token
+        )
         self.username = contents.get("username", None)
         self.session_id = contents.get("session_id", None)
         self.tokens = contents.get("tokens", None)
