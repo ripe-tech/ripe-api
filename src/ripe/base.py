@@ -64,10 +64,12 @@ class API(
         session_id = self.get_session_id()
         params["sid"] = session_id
 
-    def login(self, username = None, password = None, admin = None):
+    def login(self, username = None, password = None, admin = None, token = None):
         username = username or self.username
         password = password or self.password
         admin = admin or self.admin
+        token = token or self.token
+        if token: return self.login_pid(token = token)
         url = self.base_url + ("signin_admin" if admin else "signin")
         contents = self.post(
             url,
