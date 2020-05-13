@@ -6,7 +6,7 @@ import setuptools
 
 setuptools.setup(
     name = "ripe-api",
-    version = "0.1.6",
+    version = "0.1.7",
     author = "Platforme International",
     author_email = "development@platforme.com",
     description = "RIPE API",
