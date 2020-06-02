@@ -14,6 +14,8 @@ RIPE_BASE_URL = "http://localhost/api/"
 """ The default base URL to be used when no other
 base URL value is provided to the constructor """
 
+RIPE_PULSE_URL = "https://pulse.platforme.com"
+
 class API(
     appier.API,
     brand.BrandAPI,
@@ -27,11 +29,13 @@ class API(
     def __init__(self, *args, **kwargs):
         appier.API.__init__(self, *args, **kwargs)
         self.base_url = appier.conf("RIPE_BASE_URL", RIPE_BASE_URL)
+        self.pulse_url = appier.conf("RIPE_PULSE_URL", RIPE_PULSE_URL)
         self.username = appier.conf("RIPE_USERNAME", None)
         self.password = appier.conf("RIPE_PASSWORD", None)
         self.secret_key = appier.conf("RIPE_SECRET_KEY", None)
         self.admin = appier.conf("RIPE_ADMIN", True, cast = bool)
         self.base_url = kwargs.get("base_url", self.base_url)
+        self.pulse_url = kwargs.get("pulse_url", self.pulse_url)
         self.username = kwargs.get("username", self.username)
         self.password = kwargs.get("password", self.password)
         self.secret_key = kwargs.get("secret_key", self.secret_key)
