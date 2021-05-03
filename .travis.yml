@@ -21,15 +21,6 @@ before_install:
   - pip install --upgrade pip setuptools
 install:
   - pip install -r requirements.txt
-  - pip install coveralls
-script: coverage run --source=ripe setup.py test
-after_success: coveralls
-deploy:
-  provider: pypi
-  user: platforme
-  password:
-    secure: Kf7Z1xdYKgNkLKg67Kvv4hzHcuM0jMvcXu3pAWp0PPRkGNxPIvNnDj+y1UZ4qJfBiAlm2/YLi1EsU1Z0qrz21ymRlU9oOa8+3lilLyvcMt0Y6tRfhyvExVio5U9ikdslpml7gAS096vqfy5uzijedE8gjuLRfUDCJl08zifssGidMSUa29R+4ioTp8K9VINBChesd1XKPSYsM3IVQtjfKAwT4LwWhpZEE3FlsQCFhoaGj1r5ZKccRA1Eimli2sJRTO5Z4R81443JZvLAls9nZKXeaw2pDevv+OU8XLDIzbDwsUBGcXM4/98HAqqHpbOkp5JTvzCeDS0m7Fu6JlWz+RHuH771cmyTW+QWydFUD76/A757kOiXb+LH8n2ntlySBzKJ61BUJQTbpqye8N8TmpxGY338Y9MvZ0juwk2hzP5spN90KqFD+l1Tn1Tzx0y2kjgDQ58sDlPmg2Sy0kCttcmlFjPIGWgjZN3m+sQh62PhzO0jBrFazCKdbFwGzw/95Shs23rrZ3EPV7mudsCZUiYGTJ/XZcDp/Gn3/pl1EgvD5603sIvel7M0D+38mwa6oyRm9rQxO6Xk0u8eGTrBx0UtPWLKb3eNI+RCE1p1+Nk1xTWTE8Gno7/FnGwoUFQwRY2XVKqNnN+ae63IyTlMXyQft30wHv0KUMeeelswRwY=
-  distributions: sdist bdist_wheel
-  on:
-    tags: true
-    python: "2.7"
+  - if [[ $TRAVIS_PYTHON_VERSION != pypy* ]]; then pip install coveralls; fi
+script: if [[ $TRAVIS_PYTHON_VERSION != pypy* ]]; then coverage run --source=ripe setup.py test; else python setup.py test; fi
+after_success: if [[ $TRAVIS_PYTHON_VERSION != pypy* ]]; then coveralls; fi
