@@ -70,6 +70,11 @@ class API(
         admin = admin or self.admin
         token = token or self.token
         if token: return self.login_pid(token = token)
+        appier.verify(
+            self.username and self.password,
+            "Username and password not provided",
+            403
+        )
         url = self.base_url + ("signin_admin" if admin else "signin")
         contents = self.post(
             url,
