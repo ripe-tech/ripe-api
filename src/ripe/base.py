@@ -38,6 +38,7 @@ class API(
         self.admin = kwargs.get("admin", self.admin)
         self.session_id = kwargs.get("session_id", None)
         self.token = kwargs.get("token", None)
+        self.login_mode = kwargs.get("login_mode", None)
 
     def build(
         self,
@@ -57,6 +58,7 @@ class API(
 
     def get_session_id(self):
         if self.session_id: return self.session_id
+        if self.login_mode == "pid": return self.login_pid()
         return self.login()
 
     def auth_callback(self, params, headers):
@@ -65,6 +67,7 @@ class API(
         params["sid"] = session_id
 
     def login(self, username = None, password = None, admin = None, token = None):
+        self.login_mode = "username"
         username = username or self.username
         password = password or self.password
         admin = admin or self.admin
@@ -85,6 +88,7 @@ class API(
         return self.session_id
 
     def login_pid(self, token = None):
+        self.login_mode = "pid"
         token = token or self.token
         url = self.base_url + "signin_pid"
         contents = self.post(
