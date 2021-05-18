@@ -37,7 +37,7 @@ class BrandAPI(object):
         contents = self.get(url, auth = False, **kwargs)
         return contents
 
-    def run_logic(self, brand, model, method, version = None, data_j = None):
+    def logic_method_brand(self, brand, model, method, version = None, data_j = None):
         url = self.base_url + "brands/%s/models/%s/logic/%s" % (brand, model, method)
         contents = self.post(
             url,
