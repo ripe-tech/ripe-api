@@ -43,6 +43,6 @@ class BrandAPI(object):
             url,
             auth = False,
             params = dict(version = version) if version else dict(),
-            data_j = data_j if data_j else None
+            data_j = data_j
         )
         return contents
