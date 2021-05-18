@@ -36,3 +36,13 @@ class BrandAPI(object):
         url = self.base_url + "brands/%s/models/%s/validate" % (brand, model)
         contents = self.get(url, auth = False, **kwargs)
         return contents
+
+    def logic_method_brand(self, brand, model, method, version = None, data_j = None):
+        url = self.base_url + "brands/%s/models/%s/logic/%s" % (brand, model, method)
+        contents = self.post(
+            url,
+            auth = False,
+            params = dict(version = version) if version else dict(),
+            data_j = data_j
+        )
+        return contents
