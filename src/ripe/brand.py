@@ -46,3 +46,12 @@ class BrandAPI(object):
             data_j = data_j
         )
         return contents
+
+    def logic_method_exists_brand(self, brand, model, method, version = None):
+        url = self.base_url + "brands/%s/models/%s/logic/%s/exists" % (brand, model, method)
+        contents = self.get(
+            url,
+            auth = False,
+            params = dict(version = version) if version else dict()
+        )
+        return contents
