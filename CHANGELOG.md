@@ -9,8 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-* Add support for `logic_method_brand` method
-* Add support for `logic_method_exists_brand` method
+*
 
 ### Changed
 
@@ -19,3 +18,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 *
+
+## [0.2.0] - 2021-06-16
+
+### Added
+
+* Add support for `logic_method_brand` method
+* Add support for `logic_method_exists_brand` method
