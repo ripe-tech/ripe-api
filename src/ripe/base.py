@@ -84,6 +84,7 @@ class API(
         self.username = contents.get("username", None)
         self.session_id = contents.get("session_id", None)
         self.tokens = contents.get("tokens", None)
+        self.password = password
         self.trigger("auth", contents)
         return self.session_id
 
@@ -100,6 +101,7 @@ class API(
         self.username = contents.get("username", None)
         self.session_id = contents.get("session_id", None)
         self.tokens = contents.get("tokens", None)
+        self.token = token
         self.trigger("auth", contents)
         return self.session_id
 
