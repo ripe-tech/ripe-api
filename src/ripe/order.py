@@ -37,6 +37,52 @@ class OrderAPI(object):
         contents = self.get(url, currency = currency)
         return contents
 
+    def produce_order(
+        self,
+        number,
+        justification = None,
+        notify = False
+    ):
+        url = self.base_url + "orders/%d/produce" % number
+        contents = self.put(
+            url,
+            justification = justification,
+            notify = notify
+        )
+        return contents
+
+    def ready_order(
+        self,
+        number,
+        justification = None,
+        notify = False
+    ):
+        url = self.base_url + "orders/%d/ready" % number
+        contents = self.put(
+            url,
+            justification = justification,
+            notify = notify
+        )
+        return contents
+
+    def send_order(
+        self,
+        number,
+        justification = None,
+        notify = False,
+        tracking_number = None,
+        tracking_url = None
+    ):
+        url = self.base_url + "orders/%d/send" % number
+        contents = self.put(
+            url,
+            justification = justification,
+            notify = notify,
+            tracking_number = tracking_number,
+            tracking_url = tracking_url
+        )
+        return contents
+
     def report_pdf(self, number):
         url = self.base_url + "orders/%d/report.pdf" % number
         contents = self.get(url, number)
