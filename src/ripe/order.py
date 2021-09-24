@@ -41,7 +41,8 @@ class OrderAPI(object):
         self,
         number,
         justification = None,
-        notify = False
+        notify = False,
+        strict = True
     ):
         url = self.base_url + "orders/%d/produce" % number
         contents = self.put(
@@ -55,7 +56,8 @@ class OrderAPI(object):
         self,
         number,
         justification = None,
-        notify = False
+        notify = False,
+        strict = True
     ):
         url = self.base_url + "orders/%d/ready" % number
         contents = self.put(
@@ -70,6 +72,7 @@ class OrderAPI(object):
         number,
         justification = None,
         notify = False,
+        strict = True,
         tracking_number = None,
         tracking_url = None
     ):
