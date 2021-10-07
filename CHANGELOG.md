@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 * Add methods `produce_order`, `ready_order` and `send_order` to allow order state change - [Related to ripe-bridge/#4584](https://github.com/ripe-tech/ripe-bridge/issues/148)
+* Add `strict` para to methods `produce_order`, `ready_order` and `send_order` - [Related to ripe-bridge/#4584](https://github.com/ripe-tech/ripe-bridge/issues/148)
 
 ### Changed
 
