@@ -48,7 +48,8 @@ class OrderAPI(object):
         contents = self.put(
             url,
             justification = justification,
-            notify = notify
+            notify = notify,
+            strict = strict
         )
         return contents
 
@@ -63,7 +64,8 @@ class OrderAPI(object):
         contents = self.put(
             url,
             justification = justification,
-            notify = notify
+            notify = notify,
+            strict = strict
         )
         return contents
 
@@ -81,6 +83,7 @@ class OrderAPI(object):
             url,
             justification = justification,
             notify = notify,
+            strict = strict,
             tracking_number = tracking_number,
             tracking_url = tracking_url
         )
