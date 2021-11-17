@@ -51,3 +51,25 @@ class SizeAPI(object):
             genders = genders
         )
         return contents
+
+    def locale_to_native(self, scale, value, gender):
+        url = self.base_url + "sizes/locale_to_native"
+        contents = self.get(
+            url,
+            auth = False,
+            scale = scale,
+            value = value,
+            gender = gender
+        )
+        return contents
+
+    def locale_to_native_b(self, scales, values, genders):
+        url = self.base_url + "sizes/locale_to_native_b"
+        contents = self.get(
+            url,
+            auth = False,
+            scales = scales,
+            values = values,
+            genders = genders
+        )
+        return contents
