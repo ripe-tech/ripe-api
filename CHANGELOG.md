@@ -27,7 +27,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Add `strict` para to methods `produce_order`, `ready_order` and `send_order` - [Related to ripe-bridge/#4584](https://github.com/ripe-tech/ripe-bridge/issues/148)
 * Add `locale_to_native` and `locale_to_native_b` methods - [#4638](https://github.com/ripe-tech/ripe-core/issues/4638)
 
-
 ## [0.3.0] - 2021-08-26
 
 ### Added
