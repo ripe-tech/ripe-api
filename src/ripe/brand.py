@@ -12,6 +12,11 @@ class BrandAPI(object):
         )
         return contents
 
+    def mesh(self, brand, model):
+        url = self.base_url + "brands/%s/models/%s/mesh" % (brand, model)
+        contents = self.get(url, auth = False)
+        return contents
+
     def config_brand(self, brand, model):
         url = self.base_url + "brands/%s/models/%s/config" % (brand, model)
         contents = self.get(url, auth = False)

@@ -3,6 +3,7 @@
 
 import appier
 
+from . import account
 from . import brand
 from . import model
 from . import order
@@ -15,6 +16,7 @@ RIPE_BASE_URL = "http://localhost/api/"
 base URL value is provided to the constructor """
 
 class API(
+    account.AccountAPI,
     appier.API,
     brand.BrandAPI,
     model.ModelAPI,
@@ -38,6 +40,7 @@ class API(
         self.admin = kwargs.get("admin", self.admin)
         self.session_id = kwargs.get("session_id", None)
         self.token = kwargs.get("token", None)
+        self.key = kwargs.get("key", None)
         self.login_mode = kwargs.get("login_mode", None)
 
     def build(
@@ -59,6 +62,7 @@ class API(
     def get_session_id(self):
         if self.session_id: return self.session_id
         if self.login_mode == "pid": return self.login_pid()
+        if self.key == "key": return self.login_key()
         return self.login()
 
     def auth_callback(self, params, headers):
@@ -109,3 +113,65 @@ class API(
         if not self.username: return False
         if not self.password: return False
         return True
+
+    def login_key(self, key = None):
+        self.login_mode = "pid"
+        key = key or self.key
+        url = self.base_url + "signin_key"
+        contents = self.post(
+            url,
+            callback = False,
+            auth = False,
+            key = key
+        )
+        self.username = contents.get("username", None)
+        self.session_id = contents.get("session_id", None)
+        self.tokens = contents.get("tokens", None)
+        self.key = key
+        self.trigger("auth", contents)
+        return self.session_id
+
+    def ping(self):
+        url = self.base_url + "ping"
+        contents = self.get(url)
+        return contents
+
+    def geo_resolve(self):
+        url = self.base_url + "geo_resolve"
+        contents = self.get(url)
+        return contents
+
+    def structure(self):
+        url = self.base_url + "structure"
+        contents = self.get(url)
+        return contents
+
+    def thumb(self, model, *args, **kwargs):
+        url = self.base_url + "thumb/%s" % model
+        contents = self.get(url, **kwargs)
+        return contents
+
+    def translate(self, *args, **kwargs):
+        url = self.base_url + "translate"
+        contents = self.get(url, **kwargs)
+        return contents
+
+    def compose(self, *args, **kwargs):
+        url = self.base_url + "compose"
+        contents = self.get(url, **kwargs)
+        return contents
+
+    def mask(self, *args, **kwargs):
+        url = self.base_url + "mask"
+        contents = self.get(url, **kwargs)
+        return contents
+
+    def swatch(self, *args, **kwargs):
+        url = self.base_url + "swatch"
+        contents = self.get(url, auth = False, **kwargs)
+        return contents
+
+    def clear(self):
+        url = self.base_url + "clear"
+        contents = self.get(url)
+        return contents
