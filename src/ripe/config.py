@@ -23,6 +23,11 @@ class ConfigAPI(object):
         contents = self.get(url, auth = False, **kwargs)
         return contents
 
+    def prices_config(self, *args, **kwargs):
+        url = self.base_url + "config/prices"
+        contents = self.get(url, auth = False, **kwargs)
+        return contents
+
     def availability_config(self, *args, **kwargs):
         url = self.base_url + "config/availability"
         contents = self.get(url, auth = False, **kwargs)

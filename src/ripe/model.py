@@ -22,3 +22,8 @@ class ModelAPI(object):
         url = self.base_url + "models/%s/factory" % model
         contents = self.get(url, auth = False)
         return contents
+
+    def validate_model(self, brand, model, *args, **kwargs):
+        url = self.base_url + "models/%s/validate" % model
+        contents = self.get(url, auth = False, **kwargs)
+        return contents

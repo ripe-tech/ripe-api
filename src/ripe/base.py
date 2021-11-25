@@ -5,11 +5,18 @@ import appier
 
 from . import account
 from . import brand
-from . import model
-from . import order
+from . import build
 from . import config
-from . import size
+from . import country_group
+from . import design
+from . import justification
 from . import locale
+from . import model
+from . import notify_info
+from . import order
+from . import profile
+from . import size
+from . import sku
 
 RIPE_BASE_URL = "http://localhost/api/"
 """ The default base URL to be used when no other
@@ -18,12 +25,19 @@ base URL value is provided to the constructor """
 class API(
     account.AccountAPI,
     appier.API,
-    brand.BrandAPI,
-    model.ModelAPI,
-    order.OrderAPI,
     config.ConfigAPI,
+    country_group.CountryGroupAPI,
+    brand.BrandAPI,
+    build.BuildAPI,
+    design.DesignAPI,
+    justification.JustificationAPI,
+    locale.LocaleAPI,
+    model.ModelAPI,
+    notify_info.NotifyInfoAPI,
+    order.OrderAPI,
+    profile.ProfileAPI,
     size.SizeAPI,
-    locale.LocaleAPI
+    sku.SkuAPI
 ):
 
     def __init__(self, *args, **kwargs):
@@ -171,7 +185,7 @@ class API(
         contents = self.get(url, auth = False, **kwargs)
         return contents
 
-    def clear(self):
-        url = self.base_url + "clear"
+    def clear_cache_compose(self):
+        url = self.base_url + "compose/clear"
         contents = self.get(url)
         return contents

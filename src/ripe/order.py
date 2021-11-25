@@ -27,6 +27,11 @@ class OrderAPI(object):
         contents = self.get(url)
         return contents
 
+    def search_order(self, *args, **kwargs):
+        url = self.base_url + "orders/search"
+        contents = self.get(url)
+        return contents
+
     def delete_order(self, number):
         url = self.base_url + "orders/%d" % number
         contents = self.delete(url)
