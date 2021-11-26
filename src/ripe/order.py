@@ -27,6 +27,241 @@ class OrderAPI(object):
         contents = self.get(url)
         return contents
 
+    def get_transport_order(self, number):
+        url = self.base_url + "orders/%d/transport" % number
+        contents = self.get(url)
+        return contents
+
+    def get_attachments_order(self, number, *args, **kwargs):
+        url = self.base_url + "orders/%d/attachments" % number
+        contents = self.get(url, **kwargs)
+        return contents
+
+    def create_attachments_order(self, number, file):
+        url = self.base_url + "orders/%d/attachments" % number
+        contents = self.post(url, data_j = file)
+        return contents
+
+    def attachment_order(self, number, attachment_id):
+        url = self.base_url + "orders/%d/attachments/%d" % (number, attachment_id)
+        contents = self.get(url)
+        return contents
+
+    def create_note_order(self, number, note):
+        url = self.base_url + "orders/%d/notes" % number
+        contents = self.post(url, data_j = note)
+        return contents
+
+    def create_waybill_order(self, number, waybill):
+        url = self.base_url + "orders/%d/waybill" % number
+        contents = self.post(url, data_j = waybill)
+        return contents
+
+    def refresh_shipping_order(self, number):
+        url = self.base_url + "orders/%d/refresh_shipping" % number
+        contents = self.post(url)
+        return contents
+
+    def log_order(self, number):
+        url = self.base_url + "orders/%d/log" % number
+        contents = self.get(url)
+        return contents
+
+    def states_order(self, number):
+        url = self.base_url + "orders/%d/states" % number
+        contents = self.get(url)
+        return contents
+
+    def state_order(self, number, state_id):
+        url = self.base_url + "orders/%d/states/%d" % (number, state_id)
+        contents = self.get(url)
+        return contents
+
+    def state_chat_order(self, number, state_id):
+        url = self.base_url + "orders/%d/states/%d/chat" % (number, state_id)
+        contents = self.get(url)
+        return contents
+
+    def state_chat_lines_order(self, number, state_id):
+        url = self.base_url + "orders/%d/states/%d/chat/lines" % (number, state_id)
+        contents = self.get(url)
+        return contents
+
+    def state_chat_lines_count_order(self, number, state_id):
+        url = self.base_url + "orders/%d/states/%d/chat/lines/count" % (number, state_id)
+        contents = self.get(url)
+        return contents
+
+    def state_chat_create_line_order(self, number, state_id, content):
+        url = self.base_url + "orders/%d/states/%d/chat/lines/count" % (number, state_id)
+        contents = self.post(url, data_j = content)
+        return contents
+
+    def state_attachments_order(self, number, state_id):
+        url = self.base_url + "orders/%d/states/%d/attachments" % (number, state_id)
+        contents = self.get(url)
+        return contents
+
+    def state_attachments_count_order(self, number, state_id):
+        url = self.base_url + "orders/%d/states/%d/attachments/count" % (number, state_id)
+        contents = self.get(url)
+        return contents
+
+    def state_create_attachments_order(self, number, state_id, file):
+        url = self.base_url + "orders/%d/states/%d/attachments" % (number, state_id)
+        contents = self.post(url, data_j = file)
+        return contents
+
+    def state_attachment_order(self, number, state_id, attachment_id):
+        url = self.base_url + "orders/%d/states/%d/attachments/%d" % (number, state_id, attachment_id)
+        contents = self.get(url)
+        return contents
+
+    def quality_assure_order(
+        self,
+        number,
+        justification = None,
+        notify = False,
+        strict = True
+    ):
+        url = self.base_url + "orders/%d/quality_assure" % number
+        contents = self.put(
+            url,
+            justification = justification,
+            notify = notify,
+            strict = strict
+        )
+        return contents
+
+    def reject_order(
+        self,
+        number,
+        justification = None,
+        notify = False,
+        strict = True
+    ):
+        url = self.base_url + "orders/%d/reject" % number
+        contents = self.put(
+            url,
+            justification = justification,
+            notify = notify,
+            strict = strict
+        )
+        return contents
+
+    def block_order(
+        self,
+        number,
+        justification = None,
+        notify = False,
+        strict = True
+    ):
+        url = self.base_url + "orders/%d/block" % number
+        contents = self.put(
+            url,
+            justification = justification,
+            notify = notify,
+            strict = strict
+        )
+        return contents
+
+    def receive_order(
+        self,
+        number,
+        justification = None,
+        notify = False,
+        strict = True
+    ):
+        url = self.base_url + "orders/%d/receive" % number
+        contents = self.put(
+            url,
+            justification = justification,
+            notify = notify,
+            strict = strict
+        )
+        return contents
+
+    def return_order(
+        self,
+        number,
+        justification = None,
+        notify = False,
+        strict = True
+    ):
+        url = self.base_url + "orders/%d/return" % number
+        contents = self.put(
+            url,
+            justification = justification,
+            notify = notify,
+            strict = strict
+        )
+        return contents
+
+    def cancel_order(
+        self,
+        number,
+        justification = None,
+        notify = False,
+        strict = True
+    ):
+        url = self.base_url + "orders/%d/cancel" % number
+        contents = self.put(
+            url,
+            justification = justification,
+            notify = notify,
+            strict = strict
+        )
+        return contents
+
+    def set_meta_order(self, number, key, value):
+        url = self.base_url + "orders/%d/meta" % number
+        contents = self.put(
+            url,
+            data_j = dict(key = key, value = value)
+        )
+        return contents
+
+    def set_priority_order(self, number, priority):
+        url = self.base_url + "orders/%d/priority" % number
+        contents = self.put(
+            url,
+            priority = priority
+        )
+        return contents
+
+    def set_tracking_order(self, number, tracking_number, tracking_url):
+        url = self.base_url + "orders/%d/tracking" % number
+        contents = self.put(
+            url,
+            tracking_number = tracking_number,
+            tracking_url = tracking_url
+        )
+        return contents
+
+    def precustomization_order(self, number, tracking_number, tracking_url):
+        url = self.base_url + "orders/%d/tracking" % number
+        contents = self.put(
+            url,
+            tracking_number = tracking_number,
+            tracking_url = tracking_url
+        )
+        return contents
+
+    def get_subscription_order(self, number):
+        url = self.base_url + "orders/%d/subscription" % number
+        contents = self.get(url)
+        return contents
+
+    def subscribe_order(self, number):
+        url = self.base_url + "orders/%d/subscription" % number
+        contents = self.put(url)
+        return contents
+
+    def unsubscribe_order(self, number):
+        url = self.base_url + "orders/%d/subscription" % number
+        contents = self.delete(url)
+        return contents
+
     def search_order(self, *args, **kwargs):
         url = self.base_url + "orders/search"
         contents = self.get(url)
