@@ -9,7 +9,7 @@ class SkuAPI(object):
         return contents
 
     def get_sku(self, id):
-        url = self.base_url + "skus/%s" % id
+        url = self.base_url + "skus/%d" % id
         contents = self.get(url, auth = False)
         return contents
 
@@ -22,7 +22,7 @@ class SkuAPI(object):
         return contents
 
     def update_sku(self, id, sku):
-        url = self.base_url + "skus/%s" % id
+        url = self.base_url + "skus/%d" % id
         contents = self.put(
             url,
             data_j = sku
@@ -30,7 +30,7 @@ class SkuAPI(object):
         return contents
 
     def delete_sku(self, id):
-        url = self.base_url + "skus/%s" % id
+        url = self.base_url + "skus/%d" % id
         contents = self.delete(url)
         return contents
 

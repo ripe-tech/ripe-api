@@ -9,7 +9,7 @@ class CountryGroupAPI(object):
         return contents
 
     def get_country_group(self, id):
-        url = self.base_url + "country_groups/%s" % id
+        url = self.base_url + "country_groups/%d" % id
         contents = self.get(url)
         return contents
 
@@ -19,11 +19,11 @@ class CountryGroupAPI(object):
         return contents
 
     def update_country_group(self, id, country_group):
-        url = self.base_url + "country_groups/%s" % id
+        url = self.base_url + "country_groups/%d" % id
         contents = self.put(url, data_j = country_group)
         return contents
 
     def delete_country_group(self, id):
-        url = self.base_url + "country_groups/%s" % id
+        url = self.base_url + "country_groups/%d" % id
         contents = self.delete(url)
         return contents

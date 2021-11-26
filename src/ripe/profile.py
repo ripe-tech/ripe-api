@@ -1,8 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-import json
-
 class ProfileAPI(object):
 
     def get_profiles(self, *args, **kwargs):

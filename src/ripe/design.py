@@ -9,7 +9,7 @@ class DesignAPI(object):
         return contents
 
     def get_design(self, id):
-        url = self.base_url + "designs/%s" % id
+        url = self.base_url + "designs/%d" % id
         contents = self.get(url, auth = False)
         return contents
 
