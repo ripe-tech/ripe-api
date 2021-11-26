@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-* Add missing RIPE API endpoints to be consistent with RIPE SDK
+* Add missing RIPE API endpoints to be consistent with RIPE SDK - [#31](https://github.com/ripe-tech/ripe-api/pull/31)
 
 ### Changed
 
