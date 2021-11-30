@@ -3,12 +3,26 @@
 
 import appier
 
+from . import sku
+from . import root
+from . import size
 from . import brand
 from . import model
 from . import order
 from . import config
-from . import size
+from . import design
 from . import locale
+from . import account
+from . import compose
+from . import profile
+from . import price_rule
+from . import letter_rule
+from . import notify_info
+from . import factory_rule
+from . import country_group
+from . import justification
+from . import transport_rule
+from . import availability_rule
 
 RIPE_BASE_URL = "http://localhost/api/"
 """ The default base URL to be used when no other
@@ -16,12 +30,26 @@ base URL value is provided to the constructor """
 
 class API(
     appier.API,
+    sku.SkuAPI,
+    root.RootAPI,
+    size.SizeAPI,
     brand.BrandAPI,
     model.ModelAPI,
     order.OrderAPI,
     config.ConfigAPI,
-    size.SizeAPI,
-    locale.LocaleAPI
+    design.DesignAPI,
+    locale.LocaleAPI,
+    account.AccountAPI,
+    compose.ComposeAPI,
+    profile.ProfileAPI,
+    price_rule.PriceRuleAPI,
+    letter_rule.LetterRuleAPI,
+    notify_info.NotifyInfoAPI,
+    factory_rule.FactoryRuleAPI,
+    country_group.CountryGroupAPI,
+    justification.JustificationAPI,
+    transport_rule.TransportRuleAPI,
+    availability_rule.AvailabilityRuleAPI
 ):
 
     def __init__(self, *args, **kwargs):
@@ -109,3 +137,8 @@ class API(
         if not self.username: return False
         if not self.password: return False
         return True
+
+    def ping(self):
+        url = self.base_url + "ping"
+        contents = self.get(url)
+        return contents
