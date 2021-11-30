@@ -64,7 +64,6 @@ class API(
         self.admin = kwargs.get("admin", self.admin)
         self.session_id = kwargs.get("session_id", None)
         self.token = kwargs.get("token", None)
-        self.key = kwargs.get("key", None)
         self.login_mode = kwargs.get("login_mode", None)
 
     def build(
@@ -137,23 +136,6 @@ class API(
         if not self.username: return False
         if not self.password: return False
         return True
-
-    def login_key(self, key = None):
-        self.login_mode = "pid"
-        key = key or self.key
-        url = self.base_url + "signin_key"
-        contents = self.post(
-            url,
-            callback = False,
-            auth = False,
-            key = key
-        )
-        self.username = contents.get("username", None)
-        self.session_id = contents.get("session_id", None)
-        self.tokens = contents.get("tokens", None)
-        self.key = key
-        self.trigger("auth", contents)
-        return self.session_id
 
     def ping(self):
         url = self.base_url + "ping"
