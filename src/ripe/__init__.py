@@ -17,6 +17,7 @@ from . import notify_info
 from . import order
 from . import price_rule
 from . import profile
+from . import root
 from . import size
 from . import sku
 from . import transport_rule
@@ -37,6 +38,7 @@ from .notify_info import NotifyInfoAPI
 from .order import OrderAPI
 from .price_rule import PriceRuleAPI
 from .profile import ProfileAPI
+from .root import RootAPI
 from .size import SizeAPI
 from .sku import SkuAPI
 from .transport_rule import TransportRuleAPI

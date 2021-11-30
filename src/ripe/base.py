@@ -4,6 +4,7 @@
 import appier
 
 from . import sku
+from . import root
 from . import size
 from . import brand
 from . import model
@@ -30,6 +31,7 @@ base URL value is provided to the constructor """
 class API(
     appier.API,
     sku.SkuAPI,
+    root.RootAPI,
     size.SizeAPI,
     brand.BrandAPI,
     model.ModelAPI,
@@ -85,7 +87,6 @@ class API(
     def get_session_id(self):
         if self.session_id: return self.session_id
         if self.login_mode == "pid": return self.login_pid()
-        if self.key == "key": return self.login_key()
         return self.login()
 
     def auth_callback(self, params, headers):
@@ -140,39 +141,4 @@ class API(
     def ping(self):
         url = self.base_url + "ping"
         contents = self.get(url)
-        return contents
-
-    def geo_resolve(self):
-        url = self.base_url + "geo_resolve"
-        contents = self.get(url)
-        return contents
-
-    def structure(self):
-        url = self.base_url + "structure"
-        contents = self.get(url)
-        return contents
-
-    def thumb(self, model, *args, **kwargs):
-        url = self.base_url + "thumb/%s" % model
-        contents = self.get(url, **kwargs)
-        return contents
-
-    def translate(self, *args, **kwargs):
-        url = self.base_url + "translate"
-        contents = self.get(url, **kwargs)
-        return contents
-
-    def compose(self, *args, **kwargs):
-        url = self.base_url + "compose"
-        contents = self.get(url, **kwargs)
-        return contents
-
-    def mask(self, *args, **kwargs):
-        url = self.base_url + "mask"
-        contents = self.get(url, **kwargs)
-        return contents
-
-    def swatch(self, *args, **kwargs):
-        url = self.base_url + "swatch"
-        contents = self.get(url, auth = False, **kwargs)
         return contents
