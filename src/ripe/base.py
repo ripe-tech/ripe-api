@@ -13,6 +13,7 @@ from . import config
 from . import design
 from . import locale
 from . import account
+from . import compose
 from . import profile
 from . import price_rule
 from . import letter_rule
@@ -39,6 +40,7 @@ class API(
     design.DesignAPI,
     locale.LocaleAPI,
     account.AccountAPI,
+    compose.ComposeAPI,
     profile.ProfileAPI,
     price_rule.PriceRuleAPI,
     letter_rule.LetterRuleAPI,
@@ -193,9 +195,4 @@ class API(
     def swatch(self, *args, **kwargs):
         url = self.base_url + "swatch"
         contents = self.get(url, auth = False, **kwargs)
-        return contents
-
-    def clear_cache_compose(self):
-        url = self.base_url + "compose/clear"
-        contents = self.get(url)
         return contents

@@ -6,6 +6,7 @@ from . import availability_rule
 from . import base
 from . import brand
 from . import build
+from . import compose
 from . import config
 from . import country_group
 from . import design
@@ -27,6 +28,7 @@ from .base import API
 from .brand import BrandAPI
 from .build import BuildAPI
 from .country_group import CountryGroupAPI
+from .compose import ComposeAPI
 from .config import ConfigAPI
 from .design import DesignAPI
 from .factory_rule import FactoryRuleAPI
