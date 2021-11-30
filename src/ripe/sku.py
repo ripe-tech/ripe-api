@@ -8,17 +8,17 @@ class SkuAPI(object):
         contents = self.get(url, auth = False)
         return contents
 
-    def get_sku(self, id):
-        url = self.base_url + "skus/%d" % id
-        contents = self.get(url, auth = False)
-        return contents
-
     def create_sku(self, sku):
         url = self.base_url + "skus"
         contents = self.post(
             url,
             data_j = sku
         )
+        return contents
+
+    def get_sku(self, id):
+        url = self.base_url + "skus/%d" % id
+        contents = self.get(url, auth = False)
         return contents
 
     def update_sku(self, id, sku):

@@ -8,14 +8,14 @@ class TransportRuleAPI(object):
         contents = self.get(url, **kwargs)
         return contents
 
-    def get_transport_rule(self, id):
-        url = self.base_url + "transport_rules/%d" % id
-        contents = self.get(url)
-        return contents
-
     def create_transport_rule(self, transport_rule):
         url = self.base_url + "transport_rules"
         contents = self.post(url, data_j = transport_rule)
+        return contents
+
+    def get_transport_rule(self, id):
+        url = self.base_url + "transport_rules/%d" % id
+        contents = self.get(url)
         return contents
 
     def update_transport_rule(self, id, transport_rule):

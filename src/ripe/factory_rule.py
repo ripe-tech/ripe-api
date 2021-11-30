@@ -8,14 +8,14 @@ class FactoryRuleAPI(object):
         contents = self.get(url, **kwargs)
         return contents
 
-    def get_factory_rule(self, id):
-        url = self.base_url + "factory_rules/%d" % id
-        contents = self.get(url)
-        return contents
-
     def create_factory_rule(self, factory_rule):
         url = self.base_url + "factory_rules"
         contents = self.post(url, data_j = factory_rule)
+        return contents
+
+    def get_factory_rule(self, id):
+        url = self.base_url + "factory_rules/%d" % id
+        contents = self.get(url)
         return contents
 
     def update_factory_rule(self, id, factory_rule):

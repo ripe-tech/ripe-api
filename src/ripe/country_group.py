@@ -8,14 +8,14 @@ class CountryGroupAPI(object):
         contents = self.get(url, **kwargs)
         return contents
 
-    def get_country_group(self, id):
-        url = self.base_url + "country_groups/%d" % id
-        contents = self.get(url)
-        return contents
-
     def create_country_group(self, country_group):
         url = self.base_url + "country_groups"
         contents = self.post(url, data_j = country_group)
+        return contents
+
+    def get_country_group(self, id):
+        url = self.base_url + "country_groups/%d" % id
+        contents = self.get(url)
         return contents
 
     def update_country_group(self, id, country_group):

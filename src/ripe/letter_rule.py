@@ -8,14 +8,14 @@ class LetterRuleAPI(object):
         contents = self.get(url, **kwargs)
         return contents
 
-    def get_letter_rule(self, id):
-        url = self.base_url + "letter_rules/%d" % id
-        contents = self.get(url)
-        return contents
-
     def create_letter_rule(self, letter_rule):
         url = self.base_url + "letter_rules"
         contents = self.post(url, data_j = letter_rule)
+        return contents
+
+    def get_letter_rule(self, id):
+        url = self.base_url + "letter_rules/%d" % id
+        contents = self.get(url)
         return contents
 
     def update_letter_rule(self, id, letter_rule):
