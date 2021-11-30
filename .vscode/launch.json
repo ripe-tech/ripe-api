@@ -1,0 +1,22 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Example",
+            "type": "python",
+            "request": "launch",
+            "stopOnEntry": false,
+            "console": "internalConsole",
+            "justMyCode": false,
+            "python": "${command:python.interpreterPath}",
+            "module": "src.examples.app",
+            "cwd": "${workspaceFolder}",
+            "env": {
+                "BASE_URL": "http://localhost:8080/api/",
+                "RIPE_USERNAME": "root",
+                "RIPE_PASSWORD": "root",
+                "PORT": "8000"
+            }
+        }
+    ]
+}

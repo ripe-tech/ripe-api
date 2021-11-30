@@ -6,7 +6,6 @@ import appier
 from . import sku
 from . import size
 from . import brand
-from . import build
 from . import model
 from . import order
 from . import config
@@ -33,7 +32,6 @@ class API(
     sku.SkuAPI,
     size.SizeAPI,
     brand.BrandAPI,
-    build.BuildAPI,
     model.ModelAPI,
     order.OrderAPI,
     config.ConfigAPI,
