@@ -3,53 +3,51 @@
 
 import appier
 
-from ripe import factory_rule
-
-from . import account
-from . import availability_rule
+from . import sku
+from . import size
 from . import brand
 from . import build
-from . import config
-from . import country_group
-from . import design
-from . import factory_rule
-from . import justification
-from . import letter_rule
-from . import locale
 from . import model
-from . import notify_info
 from . import order
-from . import price_rule
+from . import config
+from . import design
+from . import locale
+from . import account
 from . import profile
-from . import size
-from . import sku
+from . import price_rule
+from . import letter_rule
+from . import notify_info
+from . import factory_rule
+from . import country_group
+from . import justification
 from . import transport_rule
+from . import availability_rule
 
 RIPE_BASE_URL = "http://localhost/api/"
 """ The default base URL to be used when no other
 base URL value is provided to the constructor """
 
 class API(
-    account.AccountAPI,
-    availability_rule.AvailabilityRuleAPI,
     appier.API,
-    config.ConfigAPI,
-    country_group.CountryGroupAPI,
+    sku.SkuAPI,
+    size.SizeAPI,
     brand.BrandAPI,
     build.BuildAPI,
-    design.DesignAPI,
-    factory_rule.FactoryRuleAPI,
-    justification.JustificationAPI,
-    letter_rule.LetterRuleAPI,
-    locale.LocaleAPI,
     model.ModelAPI,
-    notify_info.NotifyInfoAPI,
     order.OrderAPI,
-    price_rule.PriceRuleAPI,
+    config.ConfigAPI,
+    design.DesignAPI,
+    locale.LocaleAPI,
+    account.AccountAPI,
     profile.ProfileAPI,
-    size.SizeAPI,
-    sku.SkuAPI,
-    transport_rule.TransportRuleAPI
+    price_rule.PriceRuleAPI,
+    letter_rule.LetterRuleAPI,
+    notify_info.NotifyInfoAPI,
+    factory_rule.FactoryRuleAPI,
+    country_group.CountryGroupAPI,
+    justification.JustificationAPI,
+    transport_rule.TransportRuleAPI,
+    availability_rule.AvailabilityRuleAPI
 ):
 
     def __init__(self, *args, **kwargs):

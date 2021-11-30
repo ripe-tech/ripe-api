@@ -27,12 +27,12 @@ class OrderAPI(object):
         contents = self.get(url)
         return contents
 
-    def get_transport_order(self, number):
+    def transport_order(self, number):
         url = self.base_url + "orders/%d/transport" % number
         contents = self.get(url)
         return contents
 
-    def get_attachments_order(self, number, *args, **kwargs):
+    def attachments_order(self, number, *args, **kwargs):
         url = self.base_url + "orders/%d/attachments" % number
         contents = self.get(url, **kwargs)
         return contents
