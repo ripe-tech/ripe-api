@@ -3,7 +3,7 @@
 
 class FactoryRuleAPI(object):
     
-    def get_factory_rules(self, *args, **kwargs):
+    def list_factory_rules(self, *args, **kwargs):
         url = self.base_url + "factory_rules"
         contents = self.get(url, **kwargs)
         return contents

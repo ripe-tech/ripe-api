@@ -3,7 +3,7 @@
 
 class PriceRuleAPI(object):
 
-    def get_price_rules(self, *args, **kwargs):
+    def list_price_rules(self, *args, **kwargs):
         url = self.base_url + "price_rules"
         contents = self.get(url, **kwargs)
         return contents

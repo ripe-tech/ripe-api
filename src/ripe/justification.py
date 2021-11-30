@@ -3,7 +3,7 @@
 
 class JustificationAPI(object):
 
-    def get_justifications(self, *args, **kwargs):
+    def list_justifications(self, *args, **kwargs):
         url = self.base_url + "justifications"
         contents = self.get(url, **kwargs)
         return contents

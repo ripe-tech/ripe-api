@@ -3,7 +3,7 @@
 
 class SkuAPI(object):
 
-    def get_skus(self):
+    def list_skus(self):
         url = self.base_url + "skus"
         contents = self.get(url, auth = False)
         return contents

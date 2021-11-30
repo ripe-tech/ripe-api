@@ -3,12 +3,12 @@
 
 class BuildAPI(object):
 
-    def get_builds(self):
+    def list_builds(self):
         url = self.base_url + "builds"
         contents = self.get(url)
         return contents
 
-    def get_local_builds(self, *args, **kwargs):
+    def list_local_builds(self, *args, **kwargs):
         url = self.base_url + "builds/local"
         contents = self.get(url, **kwargs)
         return contents
@@ -38,7 +38,7 @@ class BuildAPI(object):
         contents = self.put(url, **kwargs)
         return contents
 
-    def get_build_artifacts(self, name, *args, **kwargs):
+    def list_build_artifacts(self, name, *args, **kwargs):
         url = self.base_url + "builds/%s/artifacts" % name
         contents = self.get(url, **kwargs)
         return contents

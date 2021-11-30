@@ -3,7 +3,7 @@
 
 class LetterRuleAPI(object):
     
-    def get_letter_rules(self, *args, **kwargs):
+    def list_letter_rules(self, *args, **kwargs):
         url = self.base_url + "letter_rules"
         contents = self.get(url, **kwargs)
         return contents

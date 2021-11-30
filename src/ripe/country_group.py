@@ -3,7 +3,7 @@
 
 class CountryGroupAPI(object):
 
-    def get_country_groups(self, *args, **kwargs):
+    def list_country_groups(self, *args, **kwargs):
         url = self.base_url + "country_groups"
         contents = self.get(url, **kwargs)
         return contents

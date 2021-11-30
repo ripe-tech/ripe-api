@@ -3,7 +3,7 @@
 
 class TransportRuleAPI(object):
 
-    def get_transport_rules(self, *args, **kwargs):
+    def list_transport_rules(self, *args, **kwargs):
         url = self.base_url + "transport_rules"
         contents = self.get(url, **kwargs)
         return contents

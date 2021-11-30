@@ -3,7 +3,7 @@
 
 class ProfileAPI(object):
 
-    def get_profiles(self, *args, **kwargs):
+    def list_profiles(self, *args, **kwargs):
         url = self.base_url + "profiles"
         contents = self.get(url, **kwargs)
         return contents

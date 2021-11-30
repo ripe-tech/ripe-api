@@ -3,7 +3,7 @@
 
 class DesignAPI(object):
 
-    def get_designs(self, *args, **kwargs):
+    def list_designs(self, *args, **kwargs):
         url = self.base_url + "designs"
         contents = self.get(url, auth = False, **kwargs)
         return contents
