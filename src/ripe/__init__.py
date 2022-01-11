@@ -10,6 +10,7 @@ from . import config
 from . import country_group
 from . import design
 from . import factory_rule
+from . import invoice_rule
 from . import justification
 from . import locale
 from . import model
@@ -31,6 +32,7 @@ from .compose import ComposeAPI
 from .config import ConfigAPI
 from .design import DesignAPI
 from .factory_rule import FactoryRuleAPI
+from .invoice_rule import InvoiceRuleAPI
 from .justification import JustificationAPI
 from .locale import LocaleAPI
 from .model import ModelAPI
