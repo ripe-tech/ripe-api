@@ -166,6 +166,11 @@ class OrderAPI(object):
         contents = self.delete(url)
         return contents
 
+    def update_report_url_order(self, number, report_url):
+        url = self.base_url + "orders/%d/report_url" % number
+        contents = self.put(url, report_url = report_url)
+        return contents
+
     def search_order(self, *args, **kwargs):
         url = self.base_url + "orders/search"
         contents = self.get(url)
