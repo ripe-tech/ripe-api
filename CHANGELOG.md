@@ -9,12 +9,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-* Add missing RIPE API endpoints to be consistent with RIPE SDK - [#31](https://github.com/ripe-tech/ripe-api/pull/31)
-* Add `Invoice Rule` API methods - [peri-invoicing/#3](https://github.com/ripe-tech/peri-invoicing/issues/3)
+*
 
 ### Changed
 
 *
+
+### Fixed
+
+*
+
+## [0.5.0] - 2021-11-22
+
+### Added
+
+* Add missing RIPE API endpoints to be consistent with RIPE SDK - [#31](https://github.com/ripe-tech/ripe-api/pull/31)
+* Add `Invoice Rule` API methods - [peri-invoicing/#3](https://github.com/ripe-tech/peri-invoicing/issues/3)
 
 ### Fixed
 
