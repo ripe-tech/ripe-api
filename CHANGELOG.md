@@ -19,7 +19,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 *
 
-## [0.5.0] - 2021-11-22
+## [0.5.1] - 2021-02-03
+
+### Added
+
+* Support for the `update_report_url_order` method
+
+## [0.5.0] - 2021-02-03
 
 ### Added
 
