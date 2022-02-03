@@ -329,9 +329,9 @@ class OrderAPI(object):
         )
         return contents
 
-    def report_pdf(self, number):
+    def report_pdf(self, number, key):
         url = self.base_url + "orders/%d/report.pdf" % number
-        contents = self.get(url, number)
+        contents = self.get(url, key = key)
         return contents
 
     def import_order(
