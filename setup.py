@@ -10,8 +10,6 @@ setuptools.setup(
     author = "Platforme International",
     author_email = "development@platforme.com",
     description = "RIPE API",
-    long_description = open(os.path.join(os.path.dirname(__file__), "README.md"), "r").read(),
-    long_description_content_type = "text/markdown",
     license = "Apache License, Version 2.0",
     keywords = "ripe api",
     url = "http://www.platforme.com",
@@ -41,5 +39,7 @@ setuptools.setup(
         "Programming Language :: Python :: 3.5",
         "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7"
-    ]
+    ],
+    long_description = open(os.path.join(os.path.dirname(__file__), "README.md"), "r").read(),
+    long_description_content_type = "text/markdown"
 )
