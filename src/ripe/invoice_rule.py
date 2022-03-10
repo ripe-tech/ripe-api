@@ -27,3 +27,13 @@ class InvoiceRuleAPI(object):
         url = self.base_url + "invoice_rules/%d" % id
         contents = self.delete(url)
         return contents
+
+    def resolve_invoice_rules(self, brand = None, model = None, country = None):
+        url = self.base_url + "invoice_rules/resolve"
+        contents = self.get(
+            url,
+            brand = brand,
+            model = model,
+            country = country
+        )
+        return contents
