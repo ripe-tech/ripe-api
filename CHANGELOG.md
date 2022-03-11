@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+* Added methods for waybill deletion (void) - [ripe-pulse/#301](https://github.com/ripe-tech/ripe-pulse/issues/301)
+* Methods to unset order tracking info - [ripe-pulse/#301](https://github.com/ripe-tech/ripe-pulse/issues/301)
 * Entire bulk order module for feature parity with JS SDK
 * Pylint config and pylint command to the CI environment
 
