@@ -14,6 +14,6 @@ jobs:
       - run: pip install -r requirements.txt
       - run: |
           pip install pylint
-          PYTHONPATH=src pylint src/ripe_core || true
+          PYTHONPATH=src pylint src/ || true
         if: matrix.python-version != '2.7'
       - run: python setup.py test
