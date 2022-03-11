@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 class FactoryRuleAPI(object):
-    
+
     def list_factory_rules(self, *args, **kwargs):
         url = self.base_url + "factory_rules"
         contents = self.get(url, **kwargs)

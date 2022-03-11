@@ -52,9 +52,24 @@ class OrderAPI(object):
         contents = self.post(url, data_j = note)
         return contents
 
-    def create_waybill_order(self, number, waybill):
+    def create_waybill_order(self, number):
         url = self.base_url + "orders/%d/waybill" % number
-        contents = self.post(url, data_j = waybill)
+        contents = self.post(url)
+        return contents
+
+    def create_return_waybill_order(self, number):
+        url = self.base_url + "orders/%d/return_waybill" % number
+        contents = self.post(url)
+        return contents
+
+    def void_waybill_order(self, number):
+        url = self.base_url + "orders/%d/waybill" % number
+        contents = self.delete(url)
+        return contents
+
+    def void_return_waybill_order(self, number):
+        url = self.base_url + "orders/%d/return_waybill" % number
+        contents = self.delete(url)
         return contents
 
     def refresh_shipping_order(self, number):
@@ -140,6 +155,25 @@ class OrderAPI(object):
             tracking_number = tracking_number,
             tracking_url = tracking_url
         )
+        return contents
+
+    def set_return_tracking_order(self, number, return_tracking_number, return_tracking_url):
+        url = self.base_url + "orders/%d/return_tracking" % number
+        contents = self.put(
+            url,
+            return_tracking_number = return_tracking_number,
+            return_tracking_url = return_tracking_url
+        )
+        return contents
+
+    def unset_tracking_order(self, number):
+        url = self.base_url + "orders/%d/tracking" % number
+        contents = self.delete(url)
+        return contents
+
+    def unset_return_tracking_order(self, number):
+        url = self.base_url + "orders/%d/return_tracking" % number
+        contents = self.delete(url)
         return contents
 
     def precustomization_order(self, number, tracking_number, tracking_url):
