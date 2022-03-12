@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 class AvailabilityRuleAPI(object):
-    
+
     def list_availability_rules(self, *args, **kwargs):
         url = self.base_url + "availability_rules"
         contents = self.get(url, **kwargs)

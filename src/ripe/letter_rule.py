@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 class LetterRuleAPI(object):
-    
+
     def list_letter_rules(self, *args, **kwargs):
         url = self.base_url + "letter_rules"
         contents = self.get(url, **kwargs)
