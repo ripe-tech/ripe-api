@@ -28,7 +28,7 @@ class TransportRuleAPI(object):
         contents = self.delete(url)
         return contents
 
-    def resolve_transport_rules(
+    def resolve_transport_rule(
         self,
         brand = None,
         model = None,

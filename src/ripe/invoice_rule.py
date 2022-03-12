@@ -28,7 +28,7 @@ class InvoiceRuleAPI(object):
         contents = self.delete(url)
         return contents
 
-    def resolve_invoice_rules(self, brand = None, model = None, country = None):
+    def resolve_invoice_rule(self, brand = None, model = None, country = None):
         url = self.base_url + "invoice_rules/resolve"
         contents = self.get(
             url,
