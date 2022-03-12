@@ -5,7 +5,12 @@ class SkuAPI(object):
 
     def list_skus(self):
         url = self.base_url + "skus"
-        contents = self.get(url, auth = False)
+        contents = self.get(url)
+        return contents
+
+    def list_skus_csv(self):
+        url = self.base_url + "skus.csv"
+        contents = self.get(url)
         return contents
 
     def create_sku(self, sku):
@@ -18,7 +23,7 @@ class SkuAPI(object):
 
     def get_sku(self, id):
         url = self.base_url + "skus/%d" % id
-        contents = self.get(url, auth = False)
+        contents = self.get(url)
         return contents
 
     def update_sku(self, id, sku):
@@ -36,5 +41,10 @@ class SkuAPI(object):
 
     def validate_sku(self, id):
         url = self.base_url + "skus/%s/validate" % id
+        contents = self.get(url)
+        return contents
+
+    def count_skus(self):
+        url = self.base_url + "skus/count"
         contents = self.get(url)
         return contents

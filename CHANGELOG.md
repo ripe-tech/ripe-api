@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+* Added new `sku`, `invoice_rules` and `transport_rules` endpoints
 * Added methods for waybill deletion (void) - [ripe-pulse/#301](https://github.com/ripe-tech/ripe-pulse/issues/301)
 * Methods to unset order tracking info - [ripe-pulse/#301](https://github.com/ripe-tech/ripe-pulse/issues/301)
 

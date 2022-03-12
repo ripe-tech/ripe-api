@@ -27,3 +27,20 @@ class TransportRuleAPI(object):
         url = self.base_url + "transport_rules/%d" % id
         contents = self.delete(url)
         return contents
+
+    def resolve_transport_rule(
+        self,
+        brand = None,
+        model = None,
+        country = None,
+        factory = None
+    ):
+        url = self.base_url + "transport_rules/resolve"
+        contents = self.get(
+            url,
+            brand = brand,
+            model = model,
+            country = country,
+            factory = factory
+        )
+        return contents
