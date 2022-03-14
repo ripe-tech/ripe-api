@@ -8,9 +8,9 @@ class BulkOrderAPI(object):
         contents = self.get(url, **kwargs)
         return contents
 
-    def get_bulk_order(self, number, **kwargs):
+    def get_bulk_order(self, number):
         url = self.base_url + "bulk_orders/%d" % number
-        contents = self.get(url, **kwargs)
+        contents = self.get(url)
         return contents
 
     def set_bulk_order_status(self, number, status, **kwargs):
@@ -49,20 +49,6 @@ class BulkOrderAPI(object):
         return self.set_bulk_order_status(number, "cancel", **kwargs)
 
     def import_bulk_order(self, name, orders, **kwargs):
-        return self._import_bulk_order(name, orders, **kwargs)
-
-    def attachments_bulk_order(self, number, **kwargs):
-        url = self.base_url + "bulk_orders/%d/attachments" % number
-        contents = self.get(url, **kwargs)
-        return contents
-
-    def create_attachment_bulk_order(self, number, files, **kwargs):
-        url = self.base_url + "bulk_orders/%d/attachments" % number
-        data_m = dict(files = files)
-        contents = self.post(url, data_m = data_m, **kwargs)
-        return contents
-
-    def _import_bulk_order(self, name, orders, **kwargs):
         url = self.base_url + "bulk_orders"
         brand = kwargs.get("brand", None)
         description = kwargs.get("description", None)
@@ -73,4 +59,15 @@ class BulkOrderAPI(object):
         if brand: data_j["brand"] = brand
         if description: data_j["description"] = description
         contents = self.post(url, data_j = data_j, **kwargs)
+        return contents
+
+    def attachments_bulk_order(self, number):
+        url = self.base_url + "bulk_orders/%d/attachments" % number
+        contents = self.get(url)
+        return contents
+
+    def create_attachment_bulk_order(self, number, files, **kwargs):
+        url = self.base_url + "bulk_orders/%d/attachments" % number
+        data_m = dict(files = files)
+        contents = self.post(url, data_m = data_m, **kwargs)
         return contents
