@@ -5,6 +5,7 @@ from . import account
 from . import availability_rule
 from . import base
 from . import brand
+from . import bulk_order
 from . import compose
 from . import config
 from . import country_group
@@ -27,6 +28,7 @@ from .account import AccountAPI
 from .availability_rule import AvailabilityRuleAPI
 from .base import API
 from .brand import BrandAPI
+from .bulk_order import BulkOrderAPI
 from .country_group import CountryGroupAPI
 from .compose import ComposeAPI
 from .config import ConfigAPI
