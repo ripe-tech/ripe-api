@@ -23,6 +23,7 @@ from . import root
 from . import size
 from . import sku
 from . import transport_rule
+from . import video
 
 from .account import AccountAPI
 from .availability_rule import AvailabilityRuleAPI
@@ -46,3 +47,4 @@ from .root import RootAPI
 from .size import SizeAPI
 from .sku import SkuAPI
 from .transport_rule import TransportRuleAPI
+from .video import VideoAPI
