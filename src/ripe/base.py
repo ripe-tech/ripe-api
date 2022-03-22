@@ -9,6 +9,7 @@ from . import size
 from . import brand
 from . import model
 from . import order
+from . import video
 from . import config
 from . import design
 from . import locale
@@ -36,6 +37,7 @@ class API(
     brand.BrandAPI,
     model.ModelAPI,
     order.OrderAPI,
+    video.VideoAPI,
     config.ConfigAPI,
     design.DesignAPI,
     locale.LocaleAPI,
