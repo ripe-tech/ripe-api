@@ -82,6 +82,26 @@ class OrderAPI(object):
         contents = self.get(url)
         return contents
 
+    def chat_order(self, number):
+        url = self.base_url + "orders/%d/chat" % number
+        contents = self.get(url)
+        return contents
+
+    def chat_lines_order(self, number):
+        url = self.base_url + "orders/%d/chat/lines" % number
+        contents = self.get(url)
+        return contents
+
+    def chat_lines_count_order(self, number):
+        url = self.base_url + "orders/%d/chat/lines/count" % number
+        contents = self.get(url)
+        return contents
+
+    def chat_create_line_order(self, number, content):
+        url = self.base_url + "orders/%d/chat/lines/count" % number
+        contents = self.post(url, data_j = content)
+        return contents
+
     def states_order(self, number):
         url = self.base_url + "orders/%d/states" % number
         contents = self.get(url)
