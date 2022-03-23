@@ -87,9 +87,9 @@ class OrderAPI(object):
         contents = self.get(url)
         return contents
 
-    def chat_lines_order(self, number):
+    def chat_lines_order(self, number, *args, **kwargs):
         url = self.base_url + "orders/%d/chat/lines" % number
-        contents = self.get(url)
+        contents = self.get(url, **kwargs)
         return contents
 
     def chat_lines_count_order(self, number):
