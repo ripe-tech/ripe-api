@@ -8,8 +8,6 @@ python:
   - "pypy3"
 matrix:
   include:
-  - python: 3.7
-    dist: xenial
   - python: 3.8
     dist: xenial
   - python: 3.9
@@ -19,7 +17,7 @@ matrix:
   - python: pypy3
     dist: xenial
 before_install:
-  - if [[ $TRAVIS_PYTHON_VERSION == 3.7 ]]; then pip install "pip<22" setuptools; else pip install --upgrade pip setuptools; fi
+  - pip install --upgrade pip setuptools
 install:
   - pip install -r requirements.txt
   - if [[ $TRAVIS_PYTHON_VERSION != pypy* ]]; then pip install coveralls; fi
