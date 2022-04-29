@@ -1,8 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-class LetterRuleAPI(object):
 
+class LetterRuleAPI(object):
     def list_letter_rules(self, *args, **kwargs):
         url = self.base_url + "letter_rules"
         contents = self.get(url, **kwargs)
@@ -10,7 +10,7 @@ class LetterRuleAPI(object):
 
     def create_letter_rule(self, letter_rule):
         url = self.base_url + "letter_rules"
-        contents = self.post(url, data_j = letter_rule)
+        contents = self.post(url, data_j=letter_rule)
         return contents
 
     def get_letter_rule(self, id):
@@ -20,7 +20,7 @@ class LetterRuleAPI(object):
 
     def update_letter_rule(self, id, letter_rule):
         url = self.base_url + "letter_rules/%d" % id
-        contents = self.put(url, data_j = letter_rule)
+        contents = self.put(url, data_j=letter_rule)
         return contents
 
     def delete_letter_rule(self, id):

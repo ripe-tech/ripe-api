@@ -5,14 +5,10 @@ import appier
 
 from . import base
 
-class RipeApp(appier.WebApp):
 
+class RipeApp(appier.WebApp):
     def __init__(self, *args, **kwargs):
-        appier.WebApp.__init__(
-            self,
-            name = "ripe",
-            *args, **kwargs
-        )
+        appier.WebApp.__init__(self, name="ripe", *args, **kwargs)
 
     @appier.route("/", "GET")
     def index(self):
@@ -26,6 +22,7 @@ class RipeApp(appier.WebApp):
 
     def get_api(self):
         return base.get_api()
+
 
 if __name__ == "__main__":
     app = RipeApp()

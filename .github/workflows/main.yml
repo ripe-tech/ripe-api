@@ -16,4 +16,8 @@ jobs:
           pip install pylint
           PYTHONPATH=src pylint src/ripe
         if: matrix.python-version != '2.7'
+      - run: |
+          pip install black
+          black . --check --config ./pyproject.toml
+        if: matrix.python-version != '2.7' && matrix.python-version != '3.5'
       - run: python setup.py test

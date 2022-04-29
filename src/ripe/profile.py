@@ -1,8 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-class ProfileAPI(object):
 
+class ProfileAPI(object):
     def list_profiles(self, *args, **kwargs):
         url = self.base_url + "profiles"
         contents = self.get(url, **kwargs)

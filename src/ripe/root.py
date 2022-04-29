@@ -1,8 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-class RootAPI(object):
 
+class RootAPI(object):
     def geo_resolve(self):
         url = self.base_url + "geo_resolve"
         contents = self.get(url)
@@ -35,5 +35,5 @@ class RootAPI(object):
 
     def swatch(self, *args, **kwargs):
         url = self.base_url + "swatch"
-        contents = self.get(url, auth = False, **kwargs)
+        contents = self.get(url, auth=False, **kwargs)
         return contents

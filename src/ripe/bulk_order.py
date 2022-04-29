@@ -1,8 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-class BulkOrderAPI(object):
 
+class BulkOrderAPI(object):
     def get_bulk_orders(self, **kwargs):
         url = self.base_url + "bulk_orders"
         contents = self.get(url, **kwargs)
@@ -52,13 +52,12 @@ class BulkOrderAPI(object):
         url = self.base_url + "bulk_orders"
         brand = kwargs.get("brand", None)
         description = kwargs.get("description", None)
-        data_j = dict(
-            name = name,
-            orders = orders
-        )
-        if brand: data_j["brand"] = brand
-        if description: data_j["description"] = description
-        contents = self.post(url, data_j = data_j, **kwargs)
+        data_j = dict(name=name, orders=orders)
+        if brand:
+            data_j["brand"] = brand
+        if description:
+            data_j["description"] = description
+        contents = self.post(url, data_j=data_j, **kwargs)
         return contents
 
     def attachments_bulk_order(self, number):
@@ -68,6 +67,6 @@ class BulkOrderAPI(object):
 
     def create_attachment_bulk_order(self, number, files, **kwargs):
         url = self.base_url + "bulk_orders/%d/attachments" % number
-        data_m = dict(files = files)
-        contents = self.post(url, data_m = data_m, **kwargs)
+        data_m = dict(files=files)
+        contents = self.post(url, data_m=data_m, **kwargs)
         return contents

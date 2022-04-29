@@ -22,3 +22,4 @@ RIPE API is currently licensed under the [Apache License, Version 2.0](http://ww
 [![Coverage Status](https://coveralls.io/repos/ripe-tech/ripe-api/badge.svg?branch=master)](https://coveralls.io/r/ripe-tech/ripe-api?branch=master)
 [![PyPi Status](https://img.shields.io/pypi/v/ripe-api.svg)](https://pypi.python.org/pypi/ripe-api)
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://www.apache.org/licenses/)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)

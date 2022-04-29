@@ -1,8 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-class JustificationAPI(object):
 
+class JustificationAPI(object):
     def list_justifications(self, *args, **kwargs):
         url = self.base_url + "justifications"
         contents = self.get(url, **kwargs)
