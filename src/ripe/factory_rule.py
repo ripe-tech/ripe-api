@@ -1,8 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-class FactoryRuleAPI(object):
 
+class FactoryRuleAPI(object):
     def list_factory_rules(self, *args, **kwargs):
         url = self.base_url + "factory_rules"
         contents = self.get(url, **kwargs)
@@ -10,7 +10,7 @@ class FactoryRuleAPI(object):
 
     def create_factory_rule(self, factory_rule):
         url = self.base_url + "factory_rules"
-        contents = self.post(url, data_j = factory_rule)
+        contents = self.post(url, data_j=factory_rule)
         return contents
 
     def get_factory_rule(self, id):
@@ -20,7 +20,7 @@ class FactoryRuleAPI(object):
 
     def update_factory_rule(self, id, factory_rule):
         url = self.base_url + "factory_rules/%d" % id
-        contents = self.put(url, data_j = factory_rule)
+        contents = self.put(url, data_j=factory_rule)
         return contents
 
     def delete_factory_rule(self, id):

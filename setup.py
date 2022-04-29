@@ -5,25 +5,19 @@ import os
 import setuptools
 
 setuptools.setup(
-    name = "ripe-api",
-    version = "0.5.1",
-    author = "Platforme International",
-    author_email = "development@platforme.com",
-    description = "RIPE API",
-    license = "Apache License, Version 2.0",
-    keywords = "ripe api",
-    url = "http://www.platforme.com",
-    zip_safe = False,
-    packages = [
-        "ripe"
-    ],
-    package_dir = {
-        "" : os.path.normpath("src")
-    },
-    install_requires = [
-        "appier"
-    ],
-    classifiers = [
+    name="ripe-api",
+    version="0.5.1",
+    author="Platforme International",
+    author_email="development@platforme.com",
+    description="RIPE API",
+    license="Apache License, Version 2.0",
+    keywords="ripe api",
+    url="http://www.platforme.com",
+    zip_safe=False,
+    packages=["ripe"],
+    package_dir={"": os.path.normpath("src")},
+    install_requires=["appier"],
+    classifiers=[
         "Development Status :: 5 - Production/Stable",
         "Topic :: Utilities",
         "License :: OSI Approved :: Apache Software License",
@@ -38,8 +32,8 @@ setuptools.setup(
         "Programming Language :: Python :: 3.4",
         "Programming Language :: Python :: 3.5",
         "Programming Language :: Python :: 3.6",
-        "Programming Language :: Python :: 3.7"
+        "Programming Language :: Python :: 3.7",
     ],
-    long_description = open(os.path.join(os.path.dirname(__file__), "README.md"), "r").read(),
-    long_description_content_type = "text/markdown"
+    long_description=open(os.path.join(os.path.dirname(__file__), "README.md"), "r").read(),
+    long_description_content_type="text/markdown",
 )

@@ -1,8 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-class AvailabilityRuleAPI(object):
 
+class AvailabilityRuleAPI(object):
     def list_availability_rules(self, *args, **kwargs):
         url = self.base_url + "availability_rules"
         contents = self.get(url, **kwargs)
@@ -10,7 +10,7 @@ class AvailabilityRuleAPI(object):
 
     def create_availability_rule(self, availability_rule):
         url = self.base_url + "availability_rules"
-        contents = self.post(url, data_j = availability_rule)
+        contents = self.post(url, data_j=availability_rule)
         return contents
 
     def get_availability_rule(self, id):
@@ -20,7 +20,7 @@ class AvailabilityRuleAPI(object):
 
     def update_availability_rule(self, id, availability_rule):
         url = self.base_url + "availability_rules/%d" % id
-        contents = self.put(url, data_j = availability_rule)
+        contents = self.put(url, data_j=availability_rule)
         return contents
 
     def delete_availability_rule(self, id):

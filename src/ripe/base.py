@@ -29,6 +29,7 @@ RIPE_BASE_URL = "http://localhost/api/"
 """ The default base URL to be used when no other
 base URL value is provided to the constructor """
 
+
 class API(
     appier.API,
     sku.SkuAPI,
@@ -51,16 +52,15 @@ class API(
     country_group.CountryGroupAPI,
     justification.JustificationAPI,
     transport_rule.TransportRuleAPI,
-    availability_rule.AvailabilityRuleAPI
+    availability_rule.AvailabilityRuleAPI,
 ):
-
     def __init__(self, *args, **kwargs):
         appier.API.__init__(self, *args, **kwargs)
         self.base_url = appier.conf("RIPE_BASE_URL", RIPE_BASE_URL)
         self.username = appier.conf("RIPE_USERNAME", None)
         self.password = appier.conf("RIPE_PASSWORD", None)
         self.secret_key = appier.conf("RIPE_SECRET_KEY", None)
-        self.admin = appier.conf("RIPE_ADMIN", True, cast = bool)
+        self.admin = appier.conf("RIPE_ADMIN", True, cast=bool)
         self.base_url = kwargs.get("base_url", self.base_url)
         self.username = kwargs.get("username", self.username)
         self.password = kwargs.get("password", self.password)
@@ -74,21 +74,25 @@ class API(
         self,
         method,
         url,
-        data = None,
-        data_j = None,
-        data_m = None,
-        headers = None,
-        params = None,
-        mime = None,
-        kwargs = None
+        data=None,
+        data_j=None,
+        data_m=None,
+        headers=None,
+        params=None,
+        mime=None,
+        kwargs=None,
     ):
         auth = kwargs.pop("auth", True)
-        if auth and self.secret_key: headers["X-Secret-Key"] = self.secret_key
-        if auth and not self.secret_key: params["sid"] = self.get_session_id()
+        if auth and self.secret_key:
+            headers["X-Secret-Key"] = self.secret_key
+        if auth and not self.secret_key:
+            params["sid"] = self.get_session_id()
 
     def get_session_id(self):
-        if self.session_id: return self.session_id
-        if self.login_mode == "pid": return self.login_pid()
+        if self.session_id:
+            return self.session_id
+        if self.login_mode == "pid":
+            return self.login_pid()
         return self.login()
 
     def auth_callback(self, params, headers):
@@ -96,21 +100,16 @@ class API(
         session_id = self.get_session_id()
         params["sid"] = session_id
 
-    def login(self, username = None, password = None, admin = None, token = None):
+    def login(self, username=None, password=None, admin=None, token=None):
         self.login_mode = "username"
         username = username or self.username
         password = password or self.password
         admin = admin or self.admin
         token = token or self.token
-        if token: return self.login_pid(token = token)
+        if token:
+            return self.login_pid(token=token)
         url = self.base_url + ("signin_admin" if admin else "signin")
-        contents = self.post(
-            url,
-            callback = False,
-            auth = False,
-            username = username,
-            password = password
-        )
+        contents = self.post(url, callback=False, auth=False, username=username, password=password)
         self.username = contents.get("username", None)
         self.session_id = contents.get("session_id", None)
         self.tokens = contents.get("tokens", None)
@@ -118,16 +117,11 @@ class API(
         self.trigger("auth", contents)
         return self.session_id
 
-    def login_pid(self, token = None):
+    def login_pid(self, token=None):
         self.login_mode = "pid"
         token = token or self.token
         url = self.base_url + "signin_pid"
-        contents = self.post(
-            url,
-            callback = False,
-            auth = False,
-            token = token
-        )
+        contents = self.post(url, callback=False, auth=False, token=token)
         self.username = contents.get("username", None)
         self.session_id = contents.get("session_id", None)
         self.tokens = contents.get("tokens", None)
@@ -136,8 +130,10 @@ class API(
         return self.session_id
 
     def is_auth(self):
-        if not self.username: return False
-        if not self.password: return False
+        if not self.username:
+            return False
+        if not self.password:
+            return False
         return True
 
     def ping(self):
