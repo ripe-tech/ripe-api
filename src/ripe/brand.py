@@ -41,11 +41,20 @@ class BrandAPI(object):
     def logic_method_brand(self, brand, model, method, version=None, data_j=None):
         url = self.base_url + "brands/%s/models/%s/logic/%s" % (brand, model, method)
         contents = self.post(
-            url, auth=False, params=dict(version=version) if version else dict(), data_j=data_j
+            url,
+            auth=False,
+            params=dict(version=version) if version else dict(),
+            data_j=data_j,
         )
         return contents
 
     def logic_exists_brand(self, brand, model, method, version=None):
-        url = self.base_url + "brands/%s/models/%s/logic/%s/exists" % (brand, model, method)
-        contents = self.get(url, auth=False, params=dict(version=version) if version else dict())
+        url = self.base_url + "brands/%s/models/%s/logic/%s/exists" % (
+            brand,
+            model,
+            method,
+        )
+        contents = self.get(
+            url, auth=False, params=dict(version=version) if version else dict()
+        )
         return contents

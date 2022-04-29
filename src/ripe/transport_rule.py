@@ -30,5 +30,7 @@ class TransportRuleAPI(object):
 
     def resolve_transport_rule(self, brand=None, model=None, country=None, factory=None):
         url = self.base_url + "transport_rules/resolve"
-        contents = self.get(url, brand=brand, model=model, country=country, factory=factory)
+        contents = self.get(
+            url, brand=brand, model=model, country=country, factory=factory
+        )
         return contents

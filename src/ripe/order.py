@@ -170,10 +170,14 @@ class OrderAPI(object):
 
     def set_tracking_order(self, number, tracking_number, tracking_url):
         url = self.base_url + "orders/%d/tracking" % number
-        contents = self.put(url, tracking_number=tracking_number, tracking_url=tracking_url)
+        contents = self.put(
+            url, tracking_number=tracking_number, tracking_url=tracking_url
+        )
         return contents
 
-    def set_return_tracking_order(self, number, return_tracking_number, return_tracking_url):
+    def set_return_tracking_order(
+        self, number, return_tracking_number, return_tracking_url
+    ):
         url = self.base_url + "orders/%d/return_tracking" % number
         contents = self.put(
             url,
@@ -194,7 +198,9 @@ class OrderAPI(object):
 
     def precustomization_order(self, number, tracking_number, tracking_url):
         url = self.base_url + "orders/%d/tracking" % number
-        contents = self.put(url, tracking_number=tracking_number, tracking_url=tracking_url)
+        contents = self.put(
+            url, tracking_number=tracking_number, tracking_url=tracking_url
+        )
         return contents
 
     def get_subscription_order(self, number):
@@ -234,22 +240,30 @@ class OrderAPI(object):
 
     def produce_order(self, number, justification=None, notify=False, strict=True):
         url = self.base_url + "orders/%d/produce" % number
-        contents = self.put(url, justification=justification, notify=notify, strict=strict)
+        contents = self.put(
+            url, justification=justification, notify=notify, strict=strict
+        )
         return contents
 
     def quality_assure_order(self, number, justification=None, notify=False, strict=True):
         url = self.base_url + "orders/%d/quality_assure" % number
-        contents = self.put(url, justification=justification, notify=notify, strict=strict)
+        contents = self.put(
+            url, justification=justification, notify=notify, strict=strict
+        )
         return contents
 
     def reject_order(self, number, justification=None, notify=False, strict=True):
         url = self.base_url + "orders/%d/reject" % number
-        contents = self.put(url, justification=justification, notify=notify, strict=strict)
+        contents = self.put(
+            url, justification=justification, notify=notify, strict=strict
+        )
         return contents
 
     def ready_order(self, number, justification=None, notify=False, strict=True):
         url = self.base_url + "orders/%d/ready" % number
-        contents = self.put(url, justification=justification, notify=notify, strict=strict)
+        contents = self.put(
+            url, justification=justification, notify=notify, strict=strict
+        )
         return contents
 
     def send_order(
@@ -274,22 +288,30 @@ class OrderAPI(object):
 
     def block_order(self, number, justification=None, notify=False, strict=True):
         url = self.base_url + "orders/%d/block" % number
-        contents = self.put(url, justification=justification, notify=notify, strict=strict)
+        contents = self.put(
+            url, justification=justification, notify=notify, strict=strict
+        )
         return contents
 
     def receive_order(self, number, justification=None, notify=False, strict=True):
         url = self.base_url + "orders/%d/receive" % number
-        contents = self.put(url, justification=justification, notify=notify, strict=strict)
+        contents = self.put(
+            url, justification=justification, notify=notify, strict=strict
+        )
         return contents
 
     def return_order(self, number, justification=None, notify=False, strict=True):
         url = self.base_url + "orders/%d/return" % number
-        contents = self.put(url, justification=justification, notify=notify, strict=strict)
+        contents = self.put(
+            url, justification=justification, notify=notify, strict=strict
+        )
         return contents
 
     def cancel_order(self, number, justification=None, notify=False, strict=True):
         url = self.base_url + "orders/%d/cancel" % number
-        contents = self.put(url, justification=justification, notify=notify, strict=strict)
+        contents = self.put(
+            url, justification=justification, notify=notify, strict=strict
+        )
         return contents
 
     def report_pdf(self, number, key):

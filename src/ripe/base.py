@@ -109,7 +109,9 @@ class API(
         if token:
             return self.login_pid(token=token)
         url = self.base_url + ("signin_admin" if admin else "signin")
-        contents = self.post(url, callback=False, auth=False, username=username, password=password)
+        contents = self.post(
+            url, callback=False, auth=False, username=username, password=password
+        )
         self.username = contents.get("username", None)
         self.session_id = contents.get("session_id", None)
         self.tokens = contents.get("tokens", None)
