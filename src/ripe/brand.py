@@ -40,8 +40,10 @@ class BrandAPI(object):
 
     def logic_method_brand(self, brand, model, method, version=None, data_j=None):
         url = self.base_url + "brands/%s/models/%s/logic/%s" % (brand, model, method)
-        if data_j: data_j["brand"] = data_j.get("brand", brand)
-        if data_j: data_j["model"] = data_j.get("model", model)
+        if data_j:
+            data_j["brand"] = data_j.get("brand", brand)
+        if data_j:
+            data_j["model"] = data_j.get("model", model)
         contents = self.post(
             url,
             auth=False,
