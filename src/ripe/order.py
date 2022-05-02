@@ -319,6 +319,16 @@ class OrderAPI(object):
         contents = self.get(url, key=key)
         return contents
 
+    def update_tag(self, number, identifier=None, type=None, activate=None):
+        url = self.base_url + "orders/%d/tag" % number
+        contents = self.put(url, identifier=identifier, type=type, activate=activate)
+        return contents
+
+    def activate_tag(self, number):
+        url = self.base_url + "orders/%d/tag/activate" % number
+        contents = self.put(url)
+        return contents
+
     def import_order(
         self,
         ff_order_id,
