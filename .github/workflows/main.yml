@@ -14,8 +14,9 @@ jobs:
       - run: pip install -r requirements.txt
       - run: |
           pip install pylint
+          curl https://raw.githubusercontent.com/ripe-tech/pylint-config/master/pylintrc --output pylintrc
           PYTHONPATH=src pylint src/ripe
-        if: matrix.python-version != '2.7'
+        if: matrix.python-version != '2.7' && matrix.python-version != '3.5'
       - run: |
           pip install black
           black . --check --config ./pyproject.toml

@@ -95,6 +95,7 @@ class API(
             return self.login_pid()
         return self.login()
 
+    # pylint: disable-next=method-hidden
     def auth_callback(self, params, headers):
         self.session_id = None
         session_id = self.get_session_id()
