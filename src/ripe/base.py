@@ -92,7 +92,7 @@ class API(
     @classmethod
     def _unpack_query(cls, query):
         query = query[1:] if query[0] == "?" else query
-        parts = query.split("&")
+        parts = appier.split_unescape(query, "&")
         options = dict()
         for part in parts:
             key, value = part.split("=")
@@ -108,15 +108,15 @@ class API(
     def _parse_extra_s(cls, extra_s):
         extra = dict()
         for extra_i in extra_s:
-            name, initials, engraving = extra_i.split(":", 2)
+            name, initials, engraving = appier.split_unescape(extra_i, ":", 2)
             extra[name] = dict(initials=initials, engraving=engraving or None)
         return extra
 
     @classmethod
     def _tuples_to_parts(cls, tuples):
         parts = []
-        for t in tuples:
-            name, material, color = t.split(":", 2)
+        for triplet in tuples:
+            name, material, color = appier.split_unescape(triplet, ":", 2)
             part = dict(name=name, material=material, color=color)
             parts.append(part)
         return parts
