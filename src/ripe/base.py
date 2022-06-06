@@ -143,3 +143,75 @@ class API(
         url = self.base_url + "ping"
         contents = self.get(url)
         return contents
+
+    def _query_to_spec(self, query):
+        options = self._unpack_query(query)
+        brand = options.get("brand", None)
+        model = options.get("model", None)
+        variant = options.get("variant", None)
+        version = options.get("version", None)
+        description = options.get("description", None)
+        initials = options.get("initials", None)
+        engraving = options.get("engraving", None)
+        initials_extra = options.get("initials_extra", [])
+        tuples = options.get("p", [])
+        tuples = tuples if isinstance(tuples, list) else [tuples]
+        initials_extra = (
+            initials_extra if isinstance(initials_extra, list) else [initials_extra]
+        )
+        initials_extra = self._parse_extra_s(initials_extra)
+        parts = self._tuples_to_parts(tuples)
+        parts_m = self._parts_to_parts_m(parts)
+        spec = dict(
+            brand=brand,
+            model=model,
+            parts=parts_m,
+            initials=initials,
+            engraving=engraving,
+            initials_extra=initials_extra,
+        )
+        if variant:
+            spec["variant"] = variant
+        if version:
+            spec["version"] = version
+        if description:
+            spec["description"] = description
+        return spec
+
+    def _unpack_query(self, query):
+        query = query[1:] if query[0] == "?" else query
+        parts = query.split("&")
+        options = dict()
+        for part in parts:
+            key, value = part.split("=")
+            if not key in options:
+                options[key] = value
+            elif isinstance(options[key], list):
+                options[key].append(value)
+            else:
+                options[key] = [options[key], value]
+        return options
+
+    def _parse_extra_s(self, extra_s):
+        extra = dict()
+        for extra_i in extra_s:
+            name, initials, engraving = extra_i.split(":", 2)
+            extra[name] = dict(initials=initials, engraving=engraving or None)
+        return extra
+
+    def _tuples_to_parts(self, tuples):
+        parts = []
+        for t in tuples:
+            name, material, color = t.split(":", 2)
+            part = dict(name=name, material=material, color=color)
+            parts.append(part)
+        return parts
+
+    def _parts_to_parts_m(self, parts):
+        parts_m = dict()
+        for part in parts:
+            name = part["name"]
+            material = part["material"]
+            color = part["color"]
+            parts_m[name] = dict(material=material, color=color)
+        return parts_m
