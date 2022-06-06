@@ -324,8 +324,18 @@ class OrderAPI(object):
         contents = self.put(url, identifier=identifier, type=type, activate=activate)
         return contents
 
+    def delete_tag(self, number):
+        url = self.base_url + "orders/%d/tag" % number
+        contents = self.delete(url)
+        return contents
+
     def activate_tag(self, number):
         url = self.base_url + "orders/%d/tag/activate" % number
+        contents = self.put(url)
+        return contents
+
+    def deactivate_tag(self, number):
+        url = self.base_url + "orders/%d/tag/deactivate" % number
         contents = self.put(url)
         return contents
 
