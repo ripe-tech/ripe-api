@@ -64,9 +64,12 @@ class API(
         description = options.get("description", None)
         initials = options.get("initials", None)
         engraving = options.get("engraving", None)
-        initials_extra = options.get("initials_extra", [])
+        gender = options.get("gender", None)
+        size = options.get("size", None)
+        meta = options.get("meta", [])
         tuples = options.get("p", [])
         tuples = tuples if isinstance(tuples, list) else [tuples]
+        initials_extra = options.get("initials_extra", [])
         initials_extra = (
             initials_extra if isinstance(initials_extra, list) else [initials_extra]
         )
@@ -87,11 +90,17 @@ class API(
             spec["version"] = version
         if description:
             spec["description"] = description
+        if gender:
+            spec["gender"] = gender
+        if size:
+            spec["size"] = size
+        if meta:
+            spec["meta"] = cls._normalize_meta(meta)
         return spec
 
     @classmethod
     def _unpack_query(cls, query):
-        query = query[1:] if query[0] == "?" else query
+        query = query.strip("?")
         parts = appier.split_unescape(query, "&")
         options = dict()
         for part in parts:
@@ -130,6 +139,41 @@ class API(
             color = part["color"]
             parts_m[name] = dict(material=material, color=color)
         return parts_m
+
+    @classmethod
+    def _normalize_meta(cls, meta):
+        meta_d = {}
+        meta_l = (
+            [
+                appier.split_unescape(element, ":", 2)
+                if element.startswith("$")
+                else appier.split_unescape(element, ":", 1)
+                for element in meta
+            ]
+            if meta
+            else []
+        )
+        for parts in meta_l:
+            if len(parts) == 2:
+                parts = None, parts[0], parts[1]
+            type, key, value = parts
+            if key in meta_d:
+                old = meta_d[key]
+                is_sequence = isinstance(old, (list, tuple))
+                if not is_sequence:
+                    old = [old]
+                old.append(value)
+                value = old
+            if type == "$list" and not isinstance(value, list):
+                value = [value]
+            if type == "$int":
+                value = int(value)
+            if type == "$float":
+                value = float(value)
+            if type == "$bool":
+                value = value in ("1", "true", "True")
+            meta_d[key] = value
+        return meta_d
 
     def __init__(self, *args, **kwargs):
         appier.API.__init__(self, *args, **kwargs)
