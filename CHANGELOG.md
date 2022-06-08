@@ -17,6 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Added new methods `video` and `video_thumbnail` that return a video and video thumbnail related to a given mode, video name and customization - [ripe-white/#996](https://github.com/ripe-tech/ripe-white/issues/996)
 * General order chat methods - [ripe-core/#4702](https://github.com/ripe-tech/ripe-core/issues/4702)
 * Order tag methods - [ripe-robin-revamp/#363](https://github.com/ripe-tech/ripe-robin-revamp/issues/363)
+* Port `_query_to_spec`, `_unpack_query`, `_parse_extra_s`, `_tuples_to_parts`, `_parts_to_parts_m` from RIPE SDK JS
 
 ### Changed
 

@@ -15,6 +15,7 @@ setuptools.setup(
     url="http://www.platforme.com",
     zip_safe=False,
     packages=["ripe"],
+    test_suite="ripe.test",
     package_dir={"": os.path.normpath("src")},
     install_requires=["appier"],
     classifiers=[
