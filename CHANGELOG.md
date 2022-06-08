@@ -9,6 +9,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+*
+
+### Changed
+
+*
+
+### Fixed
+
+*
+
+## [0.6.0] - 2021-06-08
+
+### Added
+
 * Added new `sku`, `invoice_rules` and `transport_rules` endpoints
 * Added methods for waybill deletion (void) - [ripe-pulse/#301](https://github.com/ripe-tech/ripe-pulse/issues/301)
 * Methods to unset order tracking info - [ripe-pulse/#301](https://github.com/ripe-tech/ripe-pulse/issues/301)
@@ -18,14 +32,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * General order chat methods - [ripe-core/#4702](https://github.com/ripe-tech/ripe-core/issues/4702)
 * Order tag methods - [ripe-robin-revamp/#363](https://github.com/ripe-tech/ripe-robin-revamp/issues/363)
 * Port `_query_to_spec`, `_unpack_query`, `_parse_extra_s`, `_tuples_to_parts`, `_parts_to_parts_m` from RIPE SDK JS
-
-### Changed
-
-*
-
-### Fixed
-
-*
 
 ## [0.5.1] - 2021-02-03
 
