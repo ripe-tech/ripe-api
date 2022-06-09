@@ -6,7 +6,7 @@ import setuptools
 
 setuptools.setup(
     name="ripe-api",
-    version="0.5.1",
+    version="0.6.0",
     author="Platforme International",
     author_email="development@platforme.com",
     description="RIPE API",
@@ -15,6 +15,7 @@ setuptools.setup(
     url="http://www.platforme.com",
     zip_safe=False,
     packages=["ripe"],
+    test_suite="ripe.test",
     package_dir={"": os.path.normpath("src")},
     install_requires=["appier"],
     classifiers=[
