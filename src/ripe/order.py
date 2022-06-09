@@ -319,14 +319,14 @@ class OrderAPI(object):
         contents = self.get(url, key=key)
         return contents
 
-    def update_tag(self, number, identifier=None, type=None, activate=True):
+    def update_tag(self, number, identifier, type, **kwargs):
         url = self.base_url + "orders/%d/tag" % number
-        contents = self.put(url, identifier=identifier, type=type, activate=activate)
+        contents = self.put(url, identifier=identifier, type=type, **kwargs)
         return contents
 
-    def delete_tag(self, number, deactivate=True):
+    def delete_tag(self, number, **kwargs):
         url = self.base_url + "orders/%d/tag" % number
-        contents = self.delete(url, deactivate=deactivate)
+        contents = self.delete(url, **kwargs)
         return contents
 
     def activate_tag(self, number):
