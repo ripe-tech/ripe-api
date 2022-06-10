@@ -6,7 +6,7 @@ import unittest
 import ripe
 
 
-class APITest(unittest.TestCase):
+class UtilAPITest(unittest.TestCase):
     def test__query_to_spec(self):
         result = ripe.API._query_to_spec(
             "brand=dummy&model=dummy&locale=en_us&format=webp&initials=AAA&engraving=grey&initials_extra=main:AAA:grey&p=side:leather_dmy:black&p=piping:leather_dmy:black&p=top0_bottom:leather_dmy:black&p=shadow:default:default"
