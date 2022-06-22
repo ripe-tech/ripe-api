@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-* Added `delete_tag` and `deactivate_tag` methods - [ripe-robin-revamp/#363](https://github.com/ripe-tech/ripe-robin-revamp/issues/363)
+*
 
 ### Changed
 
@@ -19,7 +19,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 *
 
-## [0.6.0] - 2021-06-08
+## [0.7.0] - 2022-06-22
+
+### Added
+
+* Added `delete_tag` and `deactivate_tag` methods - [ripe-robin-revamp/#363](https://github.com/ripe-tech/ripe-robin-revamp/issues/363)
+
+### Changed
+
+* Move `_query_to_spec`, `_unpack_query`, `_parse_extra_s`, `_tuples_to_parts`, `_parts_to_parts_m` to util API
+
+## [0.6.0] - 2022-06-08
 
 ### Added
 
@@ -33,13 +43,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Order tag methods - [ripe-robin-revamp/#363](https://github.com/ripe-tech/ripe-robin-revamp/issues/363)
 * Port `_query_to_spec`, `_unpack_query`, `_parse_extra_s`, `_tuples_to_parts`, `_parts_to_parts_m` from RIPE SDK JS
 
-## [0.5.1] - 2021-02-03
+## [0.5.1] - 2022-02-03
 
 ### Added
 
 * Support for the `update_report_url_order` method
 
-## [0.5.0] - 2021-02-03
+## [0.5.0] - 2022-02-03
 
 ### Added
 
