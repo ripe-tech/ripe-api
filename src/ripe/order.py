@@ -367,9 +367,9 @@ class OrderAPI(object):
         )
         return contents
 
-    def import_order_simple(self, order, *args, **kwargs):
+    def import_order_simple(self, payload, *args, **kwargs):
         url = self.base_url + "orders/import_simple"
-        contents = self.post(url, data_j=order, **kwargs)
+        contents = self.post(url, data_j=payload, **kwargs)
         return contents
 
     def create_farfetch_order(
