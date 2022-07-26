@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-* Added `import_order_simple` method
+*
 
 ### Changed
 
@@ -18,6 +18,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 *
+
+## [0.8.0] - 2022-07-26
+
+### Added
+
+* Added `import_order_simple` method
 
 ## [0.7.0] - 2022-06-22
 
