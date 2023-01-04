@@ -54,6 +54,15 @@ class OrderAPI(object):
         contents = self.post(url, data_j=note)
         return contents
 
+    def create_issue_order(
+        self, number, issue, description=None, severity=None, log=None
+    ):
+        url = self.base_url + "orders/%d/issues" % number
+        contents = self.post(
+            url, issue=issue, description=description, severity=severity, log=log
+        )
+        return contents
+
     def create_waybill_order(self, number):
         url = self.base_url + "orders/%d/waybill" % number
         contents = self.post(url)
