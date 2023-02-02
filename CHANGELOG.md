@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-* Added `create_issue_order` - [ripe-core/#4700](https://github.com/ripe-tech/ripe-core/issues/4700) 
+* Added `create_issue_order` - [ripe-core/#4700](https://github.com/ripe-tech/ripe-core/issues/4700)
 
 ### Changed
 
