@@ -26,6 +26,7 @@ jobs:
           pip install coveralls
           coverage run --source=ripe --omit="src/ripe/test/*" setup.py test
           coveralls
+        if: matrix.python-version != '2.7' && matrix.python-version != '3.5'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
