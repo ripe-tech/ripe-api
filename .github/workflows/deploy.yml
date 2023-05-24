@@ -8,7 +8,7 @@ jobs:
     name: Build
     strategy:
       matrix:
-        python-version: [2.7]
+        python-version: [3.5]
     runs-on: ubuntu-latest
     container: python:${{ matrix.python-version }}
     steps:

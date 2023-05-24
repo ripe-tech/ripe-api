@@ -5,7 +5,7 @@ jobs:
     name: Build
     strategy:
       matrix:
-        python-version: [2.7, 3.5, 3.6, 3.7, 3.8, 3.9, "3.10", rc]
+        python-version: ["3.5", "3.6", "3.7", "3.8", "3.9", "3.10", "3.11", "rc"]
     runs-on: ubuntu-latest
     container: python:${{ matrix.python-version }}
     steps:
@@ -16,17 +16,17 @@ jobs:
           pip install pylint
           curl https://raw.githubusercontent.com/ripe-tech/pylint-config/master/pylintrc --output pylintrc
           PYTHONPATH=src pylint src/ripe
-        if: matrix.python-version != '2.7' && matrix.python-version != '3.5'
+        if: matrix.python-version != '3.5'
       - run: |
           pip install black
           black . --check --config ./pyproject.toml
-        if: matrix.python-version != '2.7' && matrix.python-version != '3.5'
+        if: matrix.python-version != '3.5'
       - run: python setup.py test
       - run: |
           pip install coveralls
           coverage run --source=ripe --omit="src/ripe/test/*" setup.py test
           coveralls
-        if: matrix.python-version != '2.7' && matrix.python-version != '3.5'
+        if: matrix.python-version != '3.5'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
