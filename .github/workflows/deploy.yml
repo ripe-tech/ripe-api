@@ -10,10 +10,12 @@ jobs:
       matrix:
         python-version: [3.5]
     runs-on: ubuntu-latest
-    container: python:${{ matrix.python-version }}
     steps:
       - uses: actions/checkout@v1
-      - run: python --version
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
       - run: pip install -r requirements.txt
       - run: python setup.py test
       - run: pip install twine wheel
